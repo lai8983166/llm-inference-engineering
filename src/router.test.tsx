@@ -17,6 +17,7 @@ describe('minimal course routes', () => {
     expect([...chapterLinks].map((link) => link.getAttribute('href'))).toEqual([
       '/chapters/trustworthy-baseline',
       '/chapters/single-request',
+      '/chapters/naive-concurrency',
     ])
   })
 
@@ -49,6 +50,17 @@ describe('minimal course routes', () => {
     expect(screen.getByRole('heading', { level: 2, name: '用新场景验收' })).toBeInTheDocument()
     expect(screen.queryByText(/学习进度|掌握率/)).not.toBeInTheDocument()
     expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /上一章 · 00.*建立可相信的基线/ })).toHaveAttribute('href', '/chapters/trustworthy-baseline')
+    expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /下一章 · 02.*朴素并发为什么不够/ })).toHaveAttribute('href', '/chapters/naive-concurrency')
+  })
+
+  it('renders chapter two without linking to an unpublished chapter', () => {
+    renderRoute('/chapters/naive-concurrency')
+    expect(screen.getByRole('heading', { level: 1, name: /朴素并发\s*为什么不够/ })).toBeInTheDocument()
+    expect(screen.getByRole('complementary', { name: '第 02 章固定请求清单' })).toBeInTheDocument()
+    expect(screen.getByRole('navigation', { name: '本章内容' })).toBeInTheDocument()
+    expect(document.querySelectorAll('.chapter-prose > h2')).toHaveLength(1)
+    expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /上一章 · 01.*一次请求怎样活着/ })).toHaveAttribute('href', '/chapters/single-request')
+    expect(document.querySelector('a[href="/chapters/kv-state"]')).not.toBeInTheDocument()
   })
 
   it('places the skip link, course link, visual controls, and chapter navigation in keyboard order', async () => {

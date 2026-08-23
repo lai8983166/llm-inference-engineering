@@ -5,8 +5,9 @@ import { validateContent } from '../src/content/validate'
 const files = [
   'src/content/chapters/trustworthy-baseline.mdx',
   'src/content/chapters/single-request.mdx',
+  'src/content/chapters/naive-concurrency.mdx',
 ]
-const knownRoutes = ['/', '/chapters/trustworthy-baseline', '/chapters/single-request']
+const knownRoutes = ['/', '/chapters/trustworthy-baseline', '/chapters/single-request', '/chapters/naive-concurrency']
 let failed = false
 
 for (const file of files) {

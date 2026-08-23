@@ -25,7 +25,10 @@ export function ChapterPage() {
         </nav>
         <div className="chapter-prose"><SingleRequestChapter /></div>
       </div>
-      <ChapterNavigation previous={{ number: '00', title: '建立可相信的基线', to: '/chapters/trustworthy-baseline' }} />
+      <ChapterNavigation
+        previous={{ number: '00', title: '建立可相信的基线', to: '/chapters/trustworthy-baseline' }}
+        next={{ number: '02', title: '朴素并发为什么不够', to: '/chapters/naive-concurrency' }}
+      />
     </article>
   )
 }

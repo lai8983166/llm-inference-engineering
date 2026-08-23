@@ -32,6 +32,9 @@ export function HomePage() {
           <li>
             <Link to="/chapters/single-request"><b>01</b><span><strong>一次请求怎样活着</strong><small>从 API 合同进入执行、状态和资源生命周期</small></span></Link>
           </li>
+          <li>
+            <Link to="/chapters/naive-concurrency"><b>02</b><span><strong>朴素并发为什么不够</strong><small>让长短请求同时到达，寻找排队与执行组织的边界</small></span></Link>
+          </li>
         </ol>
       </section>
     </article>

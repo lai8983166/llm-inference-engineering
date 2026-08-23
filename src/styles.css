@@ -105,6 +105,21 @@ button, input, textarea, select { font: inherit; }
 .baseline-chapter-reading { margin-top: 20px; }
 .baseline-chapter-reading .chapter-prose > p:first-of-type { margin-top: 0; }
 
+.concurrency-chapter-header { grid-template-columns: minmax(380px, .9fr) minmax(480px, 1.1fr); }
+.arrival-manifest { color: white; background: var(--ink); border: 2px solid var(--ink); box-shadow: 14px 14px 0 var(--blue); }
+.arrival-manifest > header { display: flex; gap: 20px; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid #3a3d34; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .62rem; letter-spacing: .08em; }
+.arrival-manifest > header b { color: var(--acid); }
+.arrival-manifest ol { position: relative; display: grid; gap: 0; margin: 0; padding: 26px 22px; list-style: none; }
+.arrival-manifest ol::before { position: absolute; top: 48px; bottom: 48px; left: 78px; width: 2px; content: ""; background: #484c41; }
+.arrival-manifest li { position: relative; display: grid; grid-template-columns: 64px 90px 1fr; gap: 16px; min-height: 76px; align-items: center; }
+.arrival-manifest li::before { position: absolute; left: 52px; z-index: 1; width: 11px; height: 11px; content: ""; background: var(--acid); border: 4px solid var(--ink); border-radius: 50%; }
+.arrival-manifest li span,
+.arrival-manifest li small { color: #969a8f; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .62rem; }
+.arrival-manifest li strong { color: white; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .76rem; box-shadow: none; }
+.arrival-manifest > p { margin: 0; padding: 17px 20px; color: #c8cbc1; border-top: 1px solid #3a3d34; font-size: .72rem; line-height: 1.6; }
+.concurrency-chapter-reading { margin-top: 20px; }
+.concurrency-chapter-reading .chapter-prose > p:first-of-type { margin-top: 0; }
+
 .request-pulse { margin: 0; padding: 22px; color: #f5f4ec; background: #11130f; border-radius: 2px; box-shadow: 14px 14px 0 var(--blue); }
 .request-pulse.is-paused *,
 .request-pulse.is-paused *::before,

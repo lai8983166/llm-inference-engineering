@@ -2,6 +2,7 @@ import { createBrowserRouter, type RouteObject } from 'react-router'
 import { AppLayout } from '@/ui/AppLayout'
 import { BaselineChapterPage } from '@/ui/BaselineChapterPage'
 import { ChapterPage } from '@/ui/ChapterPage'
+import { ConcurrencyChapterPage } from '@/ui/ConcurrencyChapterPage'
 import { HomePage } from '@/ui/HomePage'
 import { NotFoundPage } from '@/ui/NotFoundPage'
 
@@ -12,6 +13,7 @@ export const routes: RouteObject[] = [
       { index: true, element: <HomePage /> },
       { path: 'chapters/trustworthy-baseline', element: <BaselineChapterPage /> },
       { path: 'chapters/single-request', element: <ChapterPage /> },
+      { path: 'chapters/naive-concurrency', element: <ConcurrencyChapterPage /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },
