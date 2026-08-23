@@ -12,7 +12,20 @@ describe('minimal course routes', () => {
   it('renders the focused course entry', () => {
     renderRoute('/')
     expect(screen.getByRole('heading', { level: 1, name: /不要背框架。\s*看系统怎样被逼出来。/ })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /进入第 01 章/ })).toHaveAttribute('href', '/chapters/single-request')
+    expect(screen.getByRole('link', { name: /从第 00 章开始/ })).toHaveAttribute('href', '/chapters/trustworthy-baseline')
+    const chapterLinks = screen.getByRole('list', { name: '' }).querySelectorAll('a')
+    expect([...chapterLinks].map((link) => link.getAttribute('href'))).toEqual([
+      '/chapters/trustworthy-baseline',
+      '/chapters/single-request',
+    ])
+  })
+
+  it('renders the chapter zero carrier without pretending the body is complete', () => {
+    renderRoute('/chapters/trustworthy-baseline')
+    expect(screen.getByRole('heading', { level: 1, name: /建立可相信的\s*基线/ })).toBeInTheDocument()
+    expect(screen.getByText(/连续正文建设中/)).toBeInTheDocument()
+    expect(screen.getByRole('complementary', { name: '一项尚待审查的性能主张' })).toBeInTheDocument()
+    expect(document.querySelectorAll('.chapter-prose')).toHaveLength(1)
   })
 
   it('renders one continuous chapter reading surface', () => {

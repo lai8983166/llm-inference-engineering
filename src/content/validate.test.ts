@@ -1,6 +1,6 @@
 import { validateContent } from './validate'
 
-const options = { knownRoutes: ['/', '/chapters/single-request'] }
+const options = { knownRoutes: ['/', '/chapters/trustworthy-baseline', '/chapters/single-request'] }
 
 describe('content structure validation', () => {
   it('finds skipped heading levels, duplicate anchors, missing alt text, and unknown routes', () => {

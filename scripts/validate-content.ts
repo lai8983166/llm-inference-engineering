@@ -2,8 +2,11 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { validateContent } from '../src/content/validate'
 
-const files = ['src/content/chapters/single-request.mdx']
-const knownRoutes = ['/', '/chapters/single-request']
+const files = [
+  'src/content/chapters/trustworthy-baseline.mdx',
+  'src/content/chapters/single-request.mdx',
+]
+const knownRoutes = ['/', '/chapters/trustworthy-baseline', '/chapters/single-request']
 let failed = false
 
 for (const file of files) {
