@@ -66,6 +66,48 @@ export interface StrategyTrace {
   snapshots: readonly RequestSnapshot[]
 }
 
+export type TraceAuditCategory =
+  | 'not-runnable'
+  | 'ready-not-selected'
+  | 'valid-device-work'
+  | 'padding-or-inactive'
+
+export interface TraceAuditEvent {
+  id: string
+  logicalStep: number
+  requestId: string
+  observation: string
+  expectedCategory: TraceAuditCategory
+}
+
+export interface TraceAuditResult {
+  eventId: string
+  selected?: TraceAuditCategory
+  expected: TraceAuditCategory
+  correct: boolean
+}
+
+export const traceAuditEvents: readonly TraceAuditEvent[] = [
+  { id: 'E0', logicalStep: 0, requestId: 'Q-beta', observation: 'arrived=true · input_ready=false', expectedCategory: 'not-runnable' },
+  { id: 'E1', logicalStep: 1, requestId: 'Q-alpha', observation: 'ready=true · selected=false · device_group=G-prev', expectedCategory: 'ready-not-selected' },
+  { id: 'E2', logicalStep: 2, requestId: 'Q-alpha', observation: 'group=G1 · phase=prefill · valid=4 · pad=0', expectedCategory: 'valid-device-work' },
+  { id: 'E3', logicalStep: 2, requestId: 'Q-beta', observation: 'group=G1 · phase=prefill · valid=2 · pad=2', expectedCategory: 'padding-or-inactive' },
+]
+
+export function assessTraceAudit(selections: Readonly<Partial<Record<string, TraceAuditCategory>>>) {
+  const results: TraceAuditResult[] = traceAuditEvents.map((event) => ({
+    eventId: event.id,
+    selected: selections[event.id],
+    expected: event.expectedCategory,
+    correct: selections[event.id] === event.expectedCategory,
+  }))
+  return {
+    results,
+    correct: results.filter((result) => result.correct).length,
+    total: results.length,
+  }
+}
+
 export const concurrencyChapterRequests: readonly RequestFixture[] = [
   { id: 'R-long', arrivalStep: 0, promptTokens: 6, outputTokens: 4, terminalReason: 'eos' },
   { id: 'R-short', arrivalStep: 1, promptTokens: 2, outputTokens: 1, terminalReason: 'eos' },

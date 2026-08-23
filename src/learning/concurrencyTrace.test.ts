@@ -1,8 +1,10 @@
 import {
+  assessTraceAudit,
   buildStrategyTrace,
   concurrencyChapterRequests,
   validateStrategyTrace,
   type ConcurrencyStrategy,
+  type TraceAuditCategory,
 } from './concurrencyTrace'
 
 const strategies: readonly ConcurrencyStrategy[] = ['serial', 'independent-loops', 'static-batch']
@@ -67,5 +69,21 @@ describe('deterministic concurrency traces', () => {
     const keys = [...serialized.matchAll(/"([^"]+)":/g)].map((match) => match[1].toLowerCase())
 
     expect(keys.some((key) => /(millisecond|duration|latency|utilization|throughput|timestamp|ms$)/.test(key))).toBe(false)
+  })
+
+  it('checks event classifications without inventing a performance score', () => {
+    const selections: Record<string, TraceAuditCategory> = {
+      E0: 'not-runnable',
+      E1: 'ready-not-selected',
+      E2: 'valid-device-work',
+      E3: 'padding-or-inactive',
+    }
+
+    expect(assessTraceAudit(selections)).toMatchObject({ correct: 4, total: 4 })
+    expect(assessTraceAudit({ ...selections, E1: 'not-runnable' }).results[1]).toMatchObject({
+      eventId: 'E1',
+      correct: false,
+      expected: 'ready-not-selected',
+    })
   })
 })

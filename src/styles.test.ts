@@ -28,4 +28,10 @@ describe('reading layout safeguards', () => {
     expect(styles).toMatch(/\.batch-occupancy-workbench \{ overflow-x: auto;/)
     expect(styles).toMatch(/\.chapter-navigation \{ grid-template-columns: 1fr; margin-top: 84px; \}/)
   })
+
+  it('keeps the concurrency audit readable without compressing raw events', () => {
+    expect(styles).toMatch(/\.raw-trace-table \{[^}]*min-width: 650px/s)
+    expect(styles).toMatch(/\.audit-result li small \{[^}]*grid-column: 1 \/ -1/s)
+    expect(styles).toMatch(/\.audit-classification,\s*\.audit-result ul \{ grid-template-columns: 1fr; \}/s)
+  })
 })

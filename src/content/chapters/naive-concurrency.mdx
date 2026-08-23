@@ -1,4 +1,6 @@
 import { RequestDeviceTraceFigure, StaticBatchOccupancyFigure } from '@/visuals/ConcurrencyFigures'
+import { ConcurrencyAssessment } from '@/learning/ConcurrencyAssessment'
+import { ConcurrencyTracePractice } from '@/learning/ConcurrencyTracePractice'
 
 第 01 章最后得到的执行器一次只照顾一个请求。它知道怎样从 prefill 进入 decode，怎样在发送前检查输出许可，也知道终止时要等在途工作安全结束再释放 KV。现在不修改这个执行器内部的任何一条规则，只让三个请求先后走进同一个服务。问题看似只是“多开几个循环”，但在动手以前，我们需要看清究竟多出了什么。
 
@@ -117,3 +119,7 @@ R-short  s1 s2  ·  ·  ·  ·     2 个有效位置 + 4 个 padding 位置
 因此下一章先离开调度策略，追踪 Attention 在每个 token 后留下的 KV 状态。等它的大小、增长和所有权约束清楚之后，我们才有资格回到“下一次选谁”，让执行成员真正动态变化。第 02 章需要留下的不是一个现成调度器，而是一组无法再被绕开的输入：原始到达、可运行状态、执行 phase、形状、在途边界和请求级资源合同。
 
 如果现在看到一份报告说“我们给每个请求开了协程，所以 GPU 已经并行，队头阻塞也解决了”，你应当先要求三类证据：主机提交是否真的交错，设备 start/complete 是否重叠，以及一次模型执行是否包含多个请求。它们回答不同问题；缺少后两类事件，协程数量仍不能证明真实 GPU 性能。
+
+<ConcurrencyTracePractice />
+
+<ConcurrencyAssessment />

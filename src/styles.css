@@ -193,6 +193,45 @@ button, input, textarea, select { font: inherit; }
 .occupancy-readout p { margin: 0; color: #585b53; font-size: .72rem; line-height: 1.55; }
 .occupancy-readout small { color: #74776f; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .56rem; }
 
+.concurrency-practice,
+.concurrency-assessment { margin-top: 128px; padding-top: 48px; border-top: 3px solid var(--ink); }
+.concurrency-practice h2,
+.concurrency-assessment h2 { margin: 0 0 26px; font-family: "Noto Serif SC", ui-serif, Georgia, serif; font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -.04em; }
+.concurrency-practice > p,
+.concurrency-assessment > p { color: #4f524a; line-height: 1.85; }
+.raw-trace-table { width: 100%; min-width: 650px; margin-bottom: 32px !important; }
+.raw-trace-table code { white-space: nowrap; }
+.audit-prediction,
+.concurrency-assessment > fieldset { display: grid; gap: 12px; margin: 28px 0 18px; padding: 22px; background: rgba(250, 248, 241, .72); border: 1px solid var(--line); }
+.audit-prediction legend,
+.concurrency-assessment legend { padding: 0 8px; font-weight: 760; }
+.audit-prediction label,
+.concurrency-assessment fieldset label { display: flex; gap: 9px; align-items: flex-start; color: #3f423a; line-height: 1.5; }
+.audit-classification { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
+.audit-classification fieldset { display: flex; gap: 10px; min-width: 0; padding: 18px; flex-direction: column; background: rgba(250, 248, 241, .72); border: 1px solid var(--line); }
+.audit-classification legend { padding: 0 7px; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .72rem; font-weight: 800; }
+.audit-classification label { display: flex; gap: 8px; align-items: flex-start; color: #55584f; font-size: .78rem; line-height: 1.45; }
+.audit-result { margin-top: 26px; padding: 22px; color: white; background: var(--ink); border-left: 6px solid var(--orange); }
+.audit-result.is-correct { border-left-color: var(--acid); }
+.audit-result > strong { color: white; box-shadow: none; }
+.audit-result ul { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 18px 0; padding: 0; list-style: none; }
+.audit-result li { display: grid; grid-template-columns: auto 1fr; gap: 5px 12px; padding: 9px 11px; color: #bfc2b7; border: 1px solid #3d4137; font-size: .7rem; }
+.audit-result li b { color: var(--acid); }
+.audit-result li span { text-align: right; }
+.audit-result li small { grid-column: 1 / -1; color: #85897e; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .56rem; letter-spacing: .03em; }
+.audit-result p { margin: 0; color: #bfc2b7; font-size: .72rem; line-height: 1.6; }
+.concurrency-assessment > button,
+.concurrency-practice > button { padding: 10px 14px; color: white; background: var(--blue); border: 0; font-weight: 760; cursor: pointer; }
+.concurrency-assessment > button:disabled,
+.concurrency-practice > button:disabled { opacity: .4; cursor: not-allowed; }
+.assessment-dimensions { display: grid; gap: 0; margin: 42px 0 24px; padding: 0; list-style: none; border-top: 2px solid var(--ink); }
+.assessment-dimensions > li { display: grid; gap: 13px; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.assessment-dimensions label { font-weight: 760; line-height: 1.55; }
+.assessment-dimensions textarea { width: 100%; padding: 14px; color: var(--ink); background: var(--paper); border: 1px solid var(--line); line-height: 1.6; resize: vertical; }
+.assessment-dimensions details { color: #565950; font-size: .82rem; }
+.assessment-dimensions summary { color: var(--blue); font-weight: 760; cursor: pointer; }
+.assessment-dimensions details p { margin: 12px 0 0; padding: 14px 16px; background: rgba(36, 87, 255, .06); font-size: .8rem; line-height: 1.7; }
+
 @media (max-width: 760px) {
   .concurrency-figure { width: 100%; margin: 58px 0 70px; box-shadow: 7px 7px 0 var(--blue); }
   .batch-occupancy-figure { box-shadow: 7px 7px 0 var(--orange); }
@@ -200,6 +239,8 @@ button, input, textarea, select { font: inherit; }
   .concurrency-toolbar { justify-content: flex-start; }
   .request-device-workbench,
   .batch-occupancy-workbench { padding: 20px 16px; }
+  .audit-classification,
+  .audit-result ul { grid-template-columns: 1fr; }
 }
 
 .request-pulse { margin: 0; padding: 22px; color: #f5f4ec; background: #11130f; border-radius: 2px; box-shadow: 14px 14px 0 var(--blue); }
