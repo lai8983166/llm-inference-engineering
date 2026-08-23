@@ -49,6 +49,13 @@ a { color: inherit; }
 .chapter-prose p { margin: 0 0 24px; color: #bdcbc6; font-size: 1.02rem; line-height: 1.95; }
 .chapter-prose strong { color: var(--ink); }
 .chapter-prose code { color: #b6f4dc; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; }
+.chapter-prose pre { overflow-x: auto; margin: 32px 0; padding: 22px 24px; border: 1px solid var(--line); background: #0a1411; line-height: 1.7; }
+.chapter-prose pre code { color: #c9d8d3; font-size: 0.88rem; }
+.chapter-prose table { display: block; width: max-content; max-width: 100%; overflow-x: auto; margin: 32px 0 40px; border-collapse: collapse; font-size: 0.88rem; line-height: 1.65; }
+.chapter-prose th,
+.chapter-prose td { min-width: 112px; padding: 12px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+.chapter-prose th { color: var(--ink); font-weight: 650; border-top: 1px solid var(--line); }
+.chapter-prose td { color: #aebfba; }
 .not-found a { color: var(--accent); }
 
 @media (max-width: 640px) {
