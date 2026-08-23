@@ -1,5 +1,6 @@
 import SingleRequestChapter from '@/content/chapters/single-request.mdx'
 import { RequestPulseHero } from '@/visuals/RequestPulseHero'
+import { ChapterNavigation } from './ChapterNavigation'
 
 export function ChapterPage() {
   return (
@@ -24,6 +25,7 @@ export function ChapterPage() {
         </nav>
         <div className="chapter-prose"><SingleRequestChapter /></div>
       </div>
+      <ChapterNavigation previous={{ number: '00', title: '建立可相信的基线', to: '/chapters/trustworthy-baseline' }} />
     </article>
   )
 }

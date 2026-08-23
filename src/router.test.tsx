@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createMemoryRouter, RouterProvider } from 'react-router'
 import { routes } from './router'
@@ -32,6 +32,7 @@ describe('minimal course routes', () => {
     expect(screen.getByRole('heading', { level: 2, name: '自己定义一次完成' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { level: 2, name: '审查另一份“优化成功”报告' })).toBeInTheDocument()
     expect(screen.queryByText(/学习进度|掌握率/)).not.toBeInTheDocument()
+    expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /下一章 · 01.*一次请求怎样活着/ })).toHaveAttribute('href', '/chapters/single-request')
   })
 
   it('renders one continuous chapter reading surface', () => {
@@ -47,6 +48,7 @@ describe('minimal course routes', () => {
     expect(finalBodyHeading.compareDocumentPosition(practiceHeading) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
     expect(screen.getByRole('heading', { level: 2, name: '用新场景验收' })).toBeInTheDocument()
     expect(screen.queryByText(/学习进度|掌握率/)).not.toBeInTheDocument()
+    expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /上一章 · 00.*建立可相信的基线/ })).toHaveAttribute('href', '/chapters/trustworthy-baseline')
   })
 
   it('places the skip link, course link, visual controls, and chapter navigation in keyboard order', async () => {

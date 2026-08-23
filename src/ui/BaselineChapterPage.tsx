@@ -1,4 +1,5 @@
 import TrustworthyBaselineChapter from '@/content/chapters/trustworthy-baseline.mdx'
+import { ChapterNavigation } from './ChapterNavigation'
 
 export function BaselineChapterPage() {
   return (
@@ -36,6 +37,7 @@ export function BaselineChapterPage() {
         </nav>
         <div className="chapter-prose"><TrustworthyBaselineChapter /></div>
       </div>
+      <ChapterNavigation next={{ number: '01', title: '一次请求怎样活着', to: '/chapters/single-request' }} />
     </article>
   )
 }

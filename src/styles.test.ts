@@ -23,5 +23,7 @@ describe('reading layout safeguards', () => {
   it('keeps evidence timelines inspectable on narrow screens', () => {
     expect(styles).toMatch(/\.boundary-workbench \{ overflow-x: auto;/)
     expect(styles).toMatch(/\.distribution-workbench \{ overflow-x: auto;/)
+    expect(styles).toMatch(/\.timing-workbench \{ overflow-x: auto;/)
+    expect(styles).toMatch(/\.chapter-navigation \{ grid-template-columns: 1fr; margin-top: 84px; \}/)
   })
 })
