@@ -29,6 +29,9 @@ describe('minimal course routes', () => {
     expect(screen.getAllByRole('figure')).toHaveLength(4)
     expect(document.querySelectorAll('.chapter-prose')).toHaveLength(1)
     expect(document.querySelectorAll('[class*="card"]')).toHaveLength(0)
+    expect(screen.getByRole('heading', { level: 2, name: '自己定义一次完成' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 2, name: '审查另一份“优化成功”报告' })).toBeInTheDocument()
+    expect(screen.queryByText(/学习进度|掌握率/)).not.toBeInTheDocument()
   })
 
   it('renders one continuous chapter reading surface', () => {

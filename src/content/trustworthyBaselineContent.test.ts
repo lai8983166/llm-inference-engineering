@@ -49,4 +49,12 @@ describe('trustworthy baseline narrative', () => {
     expect(source).not.toContain('<TracePractice')
     expect(source).not.toContain('<ChapterAssessment')
   })
+
+  it('places practice and transfer review after the complete explanatory chain', () => {
+    const finalBody = source.indexOf('下一章将进入一次请求内部')
+    const practice = source.indexOf('<TimingWindowPractice')
+    const assessment = source.indexOf('<BaselineAssessment')
+    expect(finalBody).toBeLessThan(practice)
+    expect(practice).toBeLessThan(assessment)
+  })
 })

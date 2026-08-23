@@ -382,6 +382,58 @@ button, input { font: inherit; }
 .chapter-assessment details { color: var(--muted); }
 .chapter-assessment summary { color: var(--blue); font-weight: 700; cursor: pointer; }
 .chapter-assessment details p { margin: 14px 0 0; color: var(--muted); font-size: 0.94rem; }
+
+.timing-practice,
+.baseline-assessment { margin-top: 128px; padding-top: 48px; border-top: 3px solid var(--ink); }
+.timing-practice h2,
+.baseline-assessment h2 { margin: 8px 0 24px; font-family: "Noto Serif SC", ui-serif, Georgia, serif; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.15; letter-spacing: -.04em; }
+.practice-kicker { margin: 0; color: var(--blue); font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .62rem; font-weight: 800; letter-spacing: .1em; }
+.prediction-fieldset,
+.baseline-assessment fieldset { display: flex; gap: 12px; margin: 32px 0 20px; padding: 22px; flex-direction: column; background: rgba(250,248,241,.7); border: 1px solid var(--line); }
+.prediction-fieldset legend,
+.baseline-assessment legend { padding: 0 8px; color: var(--ink); font-weight: 760; }
+.prediction-fieldset label,
+.baseline-assessment fieldset label { display: flex; gap: 10px; align-items: baseline; color: #45483f; line-height: 1.6; }
+.prediction-fieldset input,
+.baseline-assessment input { accent-color: var(--blue); }
+.practice-primary,
+.baseline-assessment li > button { padding: 11px 16px; color: white; background: var(--blue); border: 0; box-shadow: 4px 4px 0 var(--ink); font-weight: 760; cursor: pointer; }
+.practice-primary:disabled,
+.baseline-assessment li > button:disabled { color: #85887f; background: #d7d3c6; box-shadow: none; cursor: not-allowed; }
+.timing-workbench { margin-top: 34px; color: white; background: #11130f; border-left: 7px solid var(--acid); box-shadow: 8px 8px 0 var(--orange); }
+.prediction-feedback { padding: 18px 20px; background: #272a23; border-bottom: 1px solid #3a3d34; }
+.prediction-feedback.is-correct { color: #171813; background: var(--acid); }
+.prediction-feedback strong { color: inherit; }
+.prediction-feedback p { margin: 7px 0 0; color: inherit; font-size: .78rem; line-height: 1.6; }
+.record-mode { display: flex; gap: 6px; padding: 20px 20px 0; }
+.record-mode button { padding: 7px 10px; color: #aeb1a7; background: transparent; border: 1px solid #494d42; cursor: pointer; }
+.record-mode button[aria-pressed="true"] { color: #11130f; background: var(--acid); border-color: var(--acid); }
+.timing-workbench table { display: table; width: calc(100% - 40px); margin: 20px; color: white; background: transparent; }
+.timing-workbench th,
+.timing-workbench td { color: #c2c5ba; border-color: #3a3d34; }
+.timing-workbench th { color: white; border-top-color: #73776b; }
+.window-builder { display: grid; grid-template-columns: 1fr auto 1fr auto; gap: 12px; align-items: end; padding: 0 20px 22px; }
+.window-builder label { display: flex; gap: 7px; flex-direction: column; color: #9da096; font-size: .65rem; }
+.window-builder select { min-width: 0; padding: 9px; color: white; background: #20231c; border: 1px solid #505449; }
+.window-builder > span { padding-bottom: 8px; color: var(--acid); }
+.window-builder button { padding: 10px 14px; color: #11130f; background: var(--acid); border: 0; font-weight: 800; cursor: pointer; }
+.window-feedback { display: grid; grid-template-columns: 120px 1fr; gap: 12px 18px; align-items: center; padding: 18px 20px; color: #171813; background: #f2efe5; border-top: 1px solid #3a3d34; }
+.window-feedback.is-invalid { background: #ffe5db; }
+.window-feedback strong { color: #171813; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: 1.15rem; }
+.window-feedback p { margin: 0; color: #4d5048; font-size: .75rem; }
+.window-feedback small { grid-column: 1 / -1; color: #73766e; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .58rem; }
+
+.baseline-assessment > ol { margin: 38px 0; padding-left: 28px; }
+.baseline-assessment > ol > li { margin-bottom: 48px; padding-left: 9px; }
+.baseline-assessment fieldset { margin-top: 0; }
+.assessment-feedback { margin-top: 20px; padding: 17px 19px; background: var(--acid); border-left: 5px solid var(--ink); }
+.assessment-feedback strong { color: var(--ink); }
+.assessment-feedback p { margin: 7px 0 0; color: #4c4f47; font-size: .8rem; }
+.baseline-assessment li > label { display: block; margin-bottom: 12px; color: var(--ink); font-weight: 760; line-height: 1.6; }
+.baseline-assessment textarea { width: 100%; resize: vertical; padding: 14px; color: var(--ink); background: rgba(250,248,241,.82); border: 1px solid var(--line); line-height: 1.65; }
+.baseline-assessment details { margin-top: 13px; color: var(--muted); }
+.baseline-assessment summary { color: var(--blue); font-weight: 700; cursor: pointer; }
+.baseline-assessment details p { margin: 12px 0 0; color: var(--muted); font-size: .92rem; }
 .not-found a { color: var(--blue); }
 
 @keyframes status-blink { 50% { opacity: 0.45; transform: scale(0.8); } }
@@ -467,6 +519,11 @@ button, input { font: inherit; }
   .trace-choices,
   .trace-workbench { grid-template-columns: 1fr; }
   .trace-state { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .timing-workbench { overflow-x: auto; }
+  .timing-workbench table { display: table; min-width: 620px; }
+  .window-builder { min-width: 620px; grid-template-columns: 1fr auto 1fr; }
+  .window-builder button { grid-column: 1 / -1; }
+  .window-feedback { min-width: 620px; }
 }
 
 @media (max-width: 440px) {

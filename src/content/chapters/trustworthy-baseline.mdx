@@ -1,3 +1,5 @@
+import { BaselineAssessment } from '@/learning/BaselineAssessment'
+import { TimingWindowPractice } from '@/learning/TimingWindowPractice'
 import { AsyncCompletionFigure, DistributionFigure, ObservationBoundaryFigure, WarmupSequenceFigure } from '@/visuals/BaselineFigures'
 
 一份优化报告摆在你面前：实现 A 用时 `100 ms`，实现 B 用时 `70 ms`。报告的结论只有一句——**B 快了 30%**。数字很整齐，差距也远大于计时器的小数误差，看起来已经足够决定是否合并这项优化。
@@ -110,3 +112,7 @@ report(t1 - t0)       # 这里只观察到“提交返回”
 因此，这份报告最后能写的不是“B 普遍更快”，而是：“在声明的模型版本、单请求工作负载和稳态策略下，十次模拟记录中 B 的中位客户端耗时低于 A，但 B 的慢端样本更高；该轨迹只验证测量协议，真实设备收益仍需按同一协议实测。”这句话不如 30% 醒目，却清楚区分了观察、比较和尚未证明的因果。
 
 我们还留下了一个刻意未拆开的词：**完成**。本章只把它当作计时窗口需要选择的事件。但一次生成请求内部，模型执行、token 选择、文本可见、停止决定与资源释放并不发生在同一刻。要真正知道客户端完成、设备完成和请求结束各自意味着什么，下一章将进入一次请求内部，追踪它怎样一步步活着。
+
+<TimingWindowPractice />
+
+<BaselineAssessment />
