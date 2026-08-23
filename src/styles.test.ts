@@ -11,4 +11,10 @@ describe('reading layout safeguards', () => {
   it('honors reduced-motion preferences', () => {
     expect(styles).toMatch(/@media \(prefers-reduced-motion: reduce\)/)
   })
+
+  it('does not leak dark prose emphasis into dark figure panels', () => {
+    expect(styles).toMatch(/\.chapter-prose \.concept-figure strong \{ box-shadow: none; \}/)
+    expect(styles).toMatch(/\.timeline-explanation > strong \{ color: white;/)
+    expect(styles).toMatch(/\.resource-gate div strong \{ color: white;/)
+  })
 })
