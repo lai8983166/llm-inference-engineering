@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { createMemoryRouter, RouterProvider } from 'react-router'
 import { routes } from './router'
 
@@ -26,5 +27,20 @@ describe('minimal course routes', () => {
     expect(finalBodyHeading.compareDocumentPosition(practiceHeading) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
     expect(screen.getByRole('heading', { level: 2, name: '用新场景验收' })).toBeInTheDocument()
     expect(screen.queryByText(/学习进度|掌握率/)).not.toBeInTheDocument()
+  })
+
+  it('places the skip link, course link, chapter navigation, and practice controls in keyboard order', async () => {
+    const user = userEvent.setup()
+    renderRoute('/chapters/single-request')
+
+    await user.tab()
+    expect(screen.getByRole('link', { name: '跳到正文' })).toHaveFocus()
+    await user.tab()
+    expect(screen.getByRole('link', { name: 'LLM Inference Engineering' })).toHaveFocus()
+    await user.tab()
+    expect(screen.getByRole('link', { name: '一次调用，多次执行' })).toHaveFocus()
+
+    for (let index = 0; index < 5; index += 1) await user.tab()
+    expect(screen.getByLabelText('取消先取得终止权')).toHaveFocus()
   })
 })
