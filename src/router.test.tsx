@@ -26,6 +26,7 @@ describe('minimal course routes', () => {
     expect(screen.getByRole('complementary', { name: '一项尚待审查的性能主张' })).toBeInTheDocument()
     expect(screen.getByRole('navigation', { name: '本章内容' })).toBeInTheDocument()
     expect(document.querySelectorAll('.chapter-prose > h2')).toHaveLength(5)
+    expect(screen.getAllByRole('figure')).toHaveLength(4)
     expect(document.querySelectorAll('.chapter-prose')).toHaveLength(1)
     expect(document.querySelectorAll('[class*="card"]')).toHaveLength(0)
   })

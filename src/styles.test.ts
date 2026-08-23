@@ -10,11 +10,18 @@ describe('reading layout safeguards', () => {
 
   it('honors reduced-motion preferences', () => {
     expect(styles).toMatch(/@media \(prefers-reduced-motion: reduce\)/)
+    expect(styles).toMatch(/animation-duration: 0\.001ms !important/)
   })
 
   it('does not leak dark prose emphasis into dark figure panels', () => {
     expect(styles).toMatch(/\.chapter-prose \.concept-figure strong \{ box-shadow: none; \}/)
     expect(styles).toMatch(/\.timeline-explanation > strong \{ color: white;/)
     expect(styles).toMatch(/\.resource-gate div strong \{ color: white;/)
+    expect(styles).toMatch(/\.evidence-header strong \{ color: white;/)
+  })
+
+  it('keeps evidence timelines inspectable on narrow screens', () => {
+    expect(styles).toMatch(/\.boundary-workbench \{ overflow-x: auto;/)
+    expect(styles).toMatch(/\.distribution-workbench \{ overflow-x: auto;/)
   })
 })
