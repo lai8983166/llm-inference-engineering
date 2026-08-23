@@ -102,8 +102,8 @@ button, input { font: inherit; }
 .baseline-claim dt { color: #898d82; font-size: 0.6rem; }
 .baseline-claim dd { overflow: hidden; margin: 6px 0 0; color: var(--acid); font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: 0.72rem; text-overflow: ellipsis; }
 .baseline-claim > p { margin: 0; padding: 18px 20px; color: #c8cbc1; font-size: 0.76rem; line-height: 1.6; }
-.baseline-reading-shell { max-width: var(--reading); margin: 20px auto 0; padding-top: 34px; border-top: 3px solid var(--ink); }
-.baseline-reading-shell .chapter-prose > p:first-of-type { margin-top: 0; }
+.baseline-chapter-reading { margin-top: 20px; }
+.baseline-chapter-reading .chapter-prose > p:first-of-type { margin-top: 0; }
 
 .request-pulse { margin: 0; padding: 22px; color: #f5f4ec; background: #11130f; border-radius: 2px; box-shadow: 14px 14px 0 var(--blue); }
 .request-pulse.is-paused *,

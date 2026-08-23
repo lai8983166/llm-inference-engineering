@@ -20,12 +20,14 @@ describe('minimal course routes', () => {
     ])
   })
 
-  it('renders the chapter zero carrier without pretending the body is complete', () => {
+  it('renders chapter zero as one continuous evidence review', () => {
     renderRoute('/chapters/trustworthy-baseline')
     expect(screen.getByRole('heading', { level: 1, name: /建立可相信的\s*基线/ })).toBeInTheDocument()
-    expect(screen.getByText(/连续正文建设中/)).toBeInTheDocument()
     expect(screen.getByRole('complementary', { name: '一项尚待审查的性能主张' })).toBeInTheDocument()
+    expect(screen.getByRole('navigation', { name: '本章内容' })).toBeInTheDocument()
+    expect(document.querySelectorAll('.chapter-prose > h2')).toHaveLength(5)
     expect(document.querySelectorAll('.chapter-prose')).toHaveLength(1)
+    expect(document.querySelectorAll('[class*="card"]')).toHaveLength(0)
   })
 
   it('renders one continuous chapter reading surface', () => {
