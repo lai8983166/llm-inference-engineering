@@ -11,15 +11,16 @@ function renderRoute(path: string) {
 describe('minimal course routes', () => {
   it('renders the focused course entry', () => {
     renderRoute('/')
-    expect(screen.getByRole('heading', { level: 1, name: '从一次请求开始，推导推理系统' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /阅读第 01 章/ })).toHaveAttribute('href', '/chapters/single-request')
+    expect(screen.getByRole('heading', { level: 1, name: /不要背框架。\s*看系统怎样被逼出来。/ })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /进入第 01 章/ })).toHaveAttribute('href', '/chapters/single-request')
   })
 
   it('renders one continuous chapter reading surface', () => {
     renderRoute('/chapters/single-request')
-    expect(screen.getByRole('heading', { level: 1, name: '一次请求怎样活着' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1, name: /一次请求\s*怎样活着/ })).toBeInTheDocument()
     expect(screen.getByRole('navigation', { name: '本章内容' })).toBeInTheDocument()
     expect(document.querySelectorAll('.chapter-prose > h2')).toHaveLength(5)
+    expect(screen.getAllByRole('figure')).toHaveLength(4)
     expect(document.querySelectorAll('.chapter-prose')).toHaveLength(1)
     expect(document.querySelectorAll('[class*="card"]')).toHaveLength(0)
     const finalBodyHeading = screen.getByRole('heading', { level: 2, name: '结束不是一个瞬间' })
@@ -29,7 +30,7 @@ describe('minimal course routes', () => {
     expect(screen.queryByText(/学习进度|掌握率/)).not.toBeInTheDocument()
   })
 
-  it('places the skip link, course link, chapter navigation, and practice controls in keyboard order', async () => {
+  it('places the skip link, course link, visual controls, and chapter navigation in keyboard order', async () => {
     const user = userEvent.setup()
     renderRoute('/chapters/single-request')
 
@@ -38,9 +39,9 @@ describe('minimal course routes', () => {
     await user.tab()
     expect(screen.getByRole('link', { name: 'LLM Inference Engineering' })).toHaveFocus()
     await user.tab()
-    expect(screen.getByRole('link', { name: '一次调用，多次执行' })).toHaveFocus()
+    expect(screen.getByRole('button', { name: '暂停动画' })).toHaveFocus()
 
     for (let index = 0; index < 5; index += 1) await user.tab()
-    expect(screen.getByLabelText('取消先取得终止权')).toHaveFocus()
+    expect(screen.getByRole('link', { name: /一次调用，多次执行/ })).toHaveFocus()
   })
 })

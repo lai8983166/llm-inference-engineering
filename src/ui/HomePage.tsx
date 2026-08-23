@@ -3,13 +3,29 @@ import { Link } from 'react-router'
 export function HomePage() {
   return (
     <article className="landing-page">
-      <p className="chapter-number">课程样板</p>
-      <h1>从一次请求开始，推导推理系统</h1>
-      <p className="landing-intro">这里不从框架功能或最佳实践开始。第一章先跟随一次生成请求，弄清模型计算、可见输出和资源生命周期为何不是同一件事。</p>
-      <Link className="start-link" to="/chapters/single-request">阅读第 01 章 <span aria-hidden="true">→</span></Link>
+      <div className="landing-hero">
+        <div>
+          <p className="chapter-number">LLM SYSTEMS · GUIDED ENGINEERING</p>
+          <h1>不要背框架。<br />看系统怎样被逼出来。</h1>
+          <p className="landing-intro">从一次生成请求开始，沿着依赖、状态、资源和失败一步步走进推理引擎。动画负责让过程可见，正文负责解释它为什么只能这样发生。</p>
+          <Link className="start-link" to="/chapters/single-request">进入第 01 章 <span aria-hidden="true">→</span></Link>
+        </div>
+        <aside className="landing-signal" aria-label="第一章系统信号预览">
+          <header><span>REQUEST / 01</span><b>LIVE</b></header>
+          <div className="signal-flow" aria-hidden="true">
+            <i>API</i><span /><i>MODEL</i><span /><i>STREAM</i>
+          </div>
+          <dl>
+            <div><dt>API calls</dt><dd>1</dd></div>
+            <div><dt>model runs</dt><dd>4</dd></div>
+            <div><dt>state</dt><dd>growing</dd></div>
+          </dl>
+          <p>一个调用，并不是一次计算。</p>
+        </aside>
+      </div>
       <section className="scope-statement" aria-labelledby="scope-title">
-        <h2 id="scope-title">这一批只验证一种教学方法</h2>
-        <p>正文应当独立讲清概念和工程设计。只有运行能够提供额外认识时，才会出现实践。</p>
+        <h2 id="scope-title">第一条推导链</h2>
+        <p>API 请求 → 自回归循环 → 两种执行形状 → 流式可见边界 → 终止与资源释放</p>
       </section>
     </article>
   )

@@ -28,38 +28,42 @@ export function TracePractice() {
       <h2 id="trace-title">推演一次取消</h2>
       <p>正文已经给出规则。这里不再讲新概念：选定一个精确顺序，先预测客户端最终看到什么，再逐事件找出判断第一次受到影响的位置。</p>
 
-      <fieldset>
-        <legend>哪个事件先取得顺序？</legend>
-        {(Object.keys(scenarioLabels) as TraceScenario[]).map((value) => (
-          <label key={value}>
-            <input type="radio" name="scenario" checked={scenario === value} onChange={() => chooseScenario(value)} />
-            {scenarioLabels[value]}
-          </label>
-        ))}
-      </fieldset>
+      <div className="trace-choices">
+        <fieldset>
+          <legend>哪个事件先取得顺序？</legend>
+          {(Object.keys(scenarioLabels) as TraceScenario[]).map((value) => (
+            <label key={value}>
+              <input type="radio" name="scenario" checked={scenario === value} onChange={() => chooseScenario(value)} />
+              {scenarioLabels[value]}
+            </label>
+          ))}
+        </fieldset>
 
-      <fieldset>
-        <legend>预测客户端最后可见的 token</legend>
-        <label><input type="radio" name="prediction" checked={prediction === 'y1'} onChange={() => { setPrediction('y1'); setCursor(0) }} />只有 y1</label>
-        <label><input type="radio" name="prediction" checked={prediction === 'y1-y2'} onChange={() => { setPrediction('y1-y2'); setCursor(0) }} />y1 和 y2</label>
-      </fieldset>
+        <fieldset>
+          <legend>预测客户端最后可见的 token</legend>
+          <label><input type="radio" name="prediction" checked={prediction === 'y1'} onChange={() => { setPrediction('y1'); setCursor(0) }} />只有 y1</label>
+          <label><input type="radio" name="prediction" checked={prediction === 'y1-y2'} onChange={() => { setPrediction('y1-y2'); setCursor(0) }} />y1 和 y2</label>
+        </fieldset>
+      </div>
 
       <button type="button" disabled={!prediction || finished} onClick={() => setCursor((value) => Math.min(value + 1, frames.length))}>
         {cursor === 0 ? '核对第一个事件' : finished ? '轨迹已结束' : '推进下一个事件'}
       </button>
 
-      <dl className="trace-state" aria-label="当前请求状态">
-        <div><dt>可见输出</dt><dd>{current.visibleTokens.join(', ')}</dd></div>
-        <div><dt>终止原因</dt><dd>{current.terminalReason ?? '尚未终止'}</dd></div>
-        <div><dt>设备工作</dt><dd>{current.inFlight ? '仍在执行' : '已到安全点'}</dd></div>
-        <div><dt>KV / 输出流</dt><dd>{current.kv} / {current.stream}</dd></div>
-      </dl>
+      <div className="trace-workbench">
+        <dl className="trace-state" aria-label="当前请求状态">
+          <div><dt>可见输出</dt><dd>{current.visibleTokens.join(', ')}</dd></div>
+          <div><dt>终止原因</dt><dd>{current.terminalReason ?? '尚未终止'}</dd></div>
+          <div><dt>设备工作</dt><dd>{current.inFlight ? '仍在执行' : '已到安全点'}</dd></div>
+          <div><dt>KV / 输出流</dt><dd>{current.kv} / {current.stream}</dd></div>
+        </dl>
 
-      {cursor > 0 && (
         <ol className="trace-events" aria-live="polite">
-          {frames.slice(0, cursor).map((frame) => <li key={frame.event}><code>{frame.event}</code>：{frame.explanation}</li>)}
+          {cursor === 0
+            ? <li className="trace-placeholder">提交预测后，从第一个原子事件开始。</li>
+            : frames.slice(0, cursor).map((frame) => <li key={frame.event}><code>{frame.event}</code><span>{frame.explanation}</span></li>)}
         </ol>
-      )}
+      </div>
 
       {finished && prediction && (
         <p className="trace-feedback">

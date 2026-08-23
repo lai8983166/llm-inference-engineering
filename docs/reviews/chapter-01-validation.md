@@ -10,11 +10,11 @@
 npm run lint          PASS
 npm run typecheck     PASS
 npm run check:content PASS — 1 prose-first chapter checked
-npm run test          PASS — 5 test files, 13 tests
-npm run build         PASS — 30 modules transformed
+npm run test          PASS — 6 test files, 17 tests
+npm run build         PASS — 32 modules transformed
 ```
 
-测试覆盖课程入口与章节路由、正文/实践先后顺序、键盘首段焦点顺序、内容结构底线、窄屏 CSS 保护、预测交互，以及取消轨迹中的输出抑制、在途资源和一次性释放不变量。生产构建生成单一入口和静态资源，无构建告警。
+测试覆盖课程入口与章节路由、正文/实践先后顺序、键盘首段焦点顺序、内容结构底线、窄屏 CSS 保护、reduced-motion、四类动态图交互、预测交互，以及取消轨迹中的输出抑制、在途资源和一次性释放不变量。生产构建生成单一入口和静态资源，无构建告警。
 
 ## 浏览器验收状态
 
