@@ -59,6 +59,7 @@ describe('minimal course routes', () => {
     expect(screen.getByRole('complementary', { name: '第 02 章固定请求清单' })).toBeInTheDocument()
     expect(screen.getByRole('navigation', { name: '本章内容' })).toBeInTheDocument()
     expect(document.querySelectorAll('.chapter-prose > h2')).toHaveLength(5)
+    expect(screen.getAllByRole('figure')).toHaveLength(2)
     expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /上一章 · 01.*一次请求怎样活着/ })).toHaveAttribute('href', '/chapters/single-request')
     expect(document.querySelector('a[href="/chapters/kv-state"]')).not.toBeInTheDocument()
   })

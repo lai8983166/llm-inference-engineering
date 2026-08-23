@@ -24,6 +24,8 @@ describe('reading layout safeguards', () => {
     expect(styles).toMatch(/\.boundary-workbench \{ overflow-x: auto;/)
     expect(styles).toMatch(/\.distribution-workbench \{ overflow-x: auto;/)
     expect(styles).toMatch(/\.timing-workbench \{ overflow-x: auto;/)
+    expect(styles).toMatch(/\.request-device-workbench \{ overflow-x: auto;/)
+    expect(styles).toMatch(/\.batch-occupancy-workbench \{ overflow-x: auto;/)
     expect(styles).toMatch(/\.chapter-navigation \{ grid-template-columns: 1fr; margin-top: 84px; \}/)
   })
 })

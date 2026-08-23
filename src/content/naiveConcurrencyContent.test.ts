@@ -14,7 +14,9 @@ describe('chapter two prose contract', () => {
       'batch-diverges',
       'next-choice',
     ])
-    expect(source).not.toMatch(/<(?:Trace|Batch|Concurrency)[A-Z][A-Za-z]+\s*\/>/)
+    expect(source.match(/<(?:RequestDeviceTraceFigure|StaticBatchOccupancyFigure)\s*\/>/g)).toHaveLength(2)
+    expect(source.indexOf('<RequestDeviceTraceFigure />')).toBeGreaterThan(source.indexOf('主机控制流能否交错'))
+    expect(source.indexOf('<StaticBatchOccupancyFigure />')).toBeGreaterThan(source.indexOf('**封闭批次**'))
   })
 
   it('uses the same request fixtures through all three naive strategies', () => {
