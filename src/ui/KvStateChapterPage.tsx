@@ -47,7 +47,10 @@ export function KvStateChapterPage() {
         </nav>
         <div className="chapter-prose"><KvStateChapter /></div>
       </div>
-      <ChapterNavigation previous={{ number: '02', title: '朴素并发为什么不够', to: '/chapters/naive-concurrency' }} />
+      <ChapterNavigation
+        previous={{ number: '02', title: '朴素并发为什么不够', to: '/chapters/naive-concurrency' }}
+        next={{ number: '04', title: '分页 KV 怎样被逼出来', to: '/chapters/paged-kv' }}
+      />
     </article>
   )
 }

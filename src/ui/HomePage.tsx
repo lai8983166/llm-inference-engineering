@@ -38,6 +38,9 @@ export function HomePage() {
           <li>
             <Link to="/chapters/kv-state"><b>03</b><span><strong>KV 为什么成为系统状态</strong><small>从 Attention 历史依赖推出容量、所有权与连续布局的失败</small></span></Link>
           </li>
+          <li>
+            <Link to="/chapters/paged-kv"><b>04</b><span><strong>分页 KV 怎样被逼出来</strong><small>从布局合同推导离散分段、固定块、块表与块池</small></span></Link>
+          </li>
         </ol>
       </section>
     </article>
