@@ -42,7 +42,10 @@ export function ConcurrencyChapterPage() {
         </nav>
         <div className="chapter-prose"><NaiveConcurrencyChapter /></div>
       </div>
-      <ChapterNavigation previous={{ number: '01', title: '一次请求怎样活着', to: '/chapters/single-request' }} />
+      <ChapterNavigation
+        previous={{ number: '01', title: '一次请求怎样活着', to: '/chapters/single-request' }}
+        next={{ number: '03', title: 'KV 为什么成为系统状态', to: '/chapters/kv-state' }}
+      />
     </article>
   )
 }

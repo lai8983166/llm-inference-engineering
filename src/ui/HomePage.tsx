@@ -35,6 +35,9 @@ export function HomePage() {
           <li>
             <Link to="/chapters/naive-concurrency"><b>02</b><span><strong>朴素并发为什么不够</strong><small>让长短请求同时到达，寻找排队与执行组织的边界</small></span></Link>
           </li>
+          <li>
+            <Link to="/chapters/kv-state"><b>03</b><span><strong>KV 为什么成为系统状态</strong><small>从 Attention 历史依赖推出容量、所有权与连续布局的失败</small></span></Link>
+          </li>
         </ol>
       </section>
     </article>

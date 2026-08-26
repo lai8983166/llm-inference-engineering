@@ -6,8 +6,9 @@ const files = [
   'src/content/chapters/trustworthy-baseline.mdx',
   'src/content/chapters/single-request.mdx',
   'src/content/chapters/naive-concurrency.mdx',
+  'src/content/chapters/kv-state.mdx',
 ]
-const knownRoutes = ['/', '/chapters/trustworthy-baseline', '/chapters/single-request', '/chapters/naive-concurrency']
+const knownRoutes = ['/', '/chapters/trustworthy-baseline', '/chapters/single-request', '/chapters/naive-concurrency', '/chapters/kv-state']
 let failed = false
 
 for (const file of files) {

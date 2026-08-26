@@ -18,6 +18,7 @@ describe('minimal course routes', () => {
       '/chapters/trustworthy-baseline',
       '/chapters/single-request',
       '/chapters/naive-concurrency',
+      '/chapters/kv-state',
     ])
   })
 
@@ -53,7 +54,7 @@ describe('minimal course routes', () => {
     expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /下一章 · 02.*朴素并发为什么不够/ })).toHaveAttribute('href', '/chapters/naive-concurrency')
   })
 
-  it('renders chapter two without linking to an unpublished chapter', () => {
+  it('renders chapter two and leads into the published kv-state chapter', () => {
     renderRoute('/chapters/naive-concurrency')
     expect(screen.getByRole('heading', { level: 1, name: /朴素并发\s*为什么不够/ })).toBeInTheDocument()
     expect(screen.getByRole('complementary', { name: '第 02 章固定请求清单' })).toBeInTheDocument()
@@ -66,7 +67,19 @@ describe('minimal course routes', () => {
     expect(screen.getByRole('heading', { level: 2, name: '审查一份“并发已经解决”的报告' })).toBeInTheDocument()
     expect(screen.queryByText(/学习进度|掌握率/)).not.toBeInTheDocument()
     expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /上一章 · 01.*一次请求怎样活着/ })).toHaveAttribute('href', '/chapters/single-request')
-    expect(document.querySelector('a[href="/chapters/kv-state"]')).not.toBeInTheDocument()
+    expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /下一章 · 03.*KV 为什么成为系统状态/ })).toHaveAttribute('href', '/chapters/kv-state')
+  })
+
+  it('renders chapter three with the teaching model manifest and no unpublished next chapter', () => {
+    renderRoute('/chapters/kv-state')
+    expect(screen.getByRole('heading', { level: 1, name: /KV 为什么\s*成为系统状态/ })).toBeInTheDocument()
+    expect(screen.getByRole('complementary', { name: '第 03 章固定教学模型' })).toBeInTheDocument()
+    expect(screen.getByRole('navigation', { name: '本章内容' })).toBeInTheDocument()
+    expect(document.querySelectorAll('.chapter-prose > h2')).toHaveLength(5)
+    expect(document.querySelectorAll('.chapter-prose')).toHaveLength(1)
+    expect(screen.queryByText(/学习进度|掌握率/)).not.toBeInTheDocument()
+    expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /上一章 · 02.*朴素并发为什么不够/ })).toHaveAttribute('href', '/chapters/naive-concurrency')
+    expect(screen.queryByText(/下一章/)).not.toBeInTheDocument()
   })
 
   it('places the skip link, course link, visual controls, and chapter navigation in keyboard order', async () => {

@@ -4,6 +4,7 @@ import { BaselineChapterPage } from '@/ui/BaselineChapterPage'
 import { ChapterPage } from '@/ui/ChapterPage'
 import { ConcurrencyChapterPage } from '@/ui/ConcurrencyChapterPage'
 import { HomePage } from '@/ui/HomePage'
+import { KvStateChapterPage } from '@/ui/KvStateChapterPage'
 import { NotFoundPage } from '@/ui/NotFoundPage'
 
 export const routes: RouteObject[] = [
@@ -14,6 +15,7 @@ export const routes: RouteObject[] = [
       { path: 'chapters/trustworthy-baseline', element: <BaselineChapterPage /> },
       { path: 'chapters/single-request', element: <ChapterPage /> },
       { path: 'chapters/naive-concurrency', element: <ConcurrencyChapterPage /> },
+      { path: 'chapters/kv-state', element: <KvStateChapterPage /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },
