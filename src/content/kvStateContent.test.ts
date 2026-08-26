@@ -15,6 +15,11 @@ describe('chapter three prose contract', () => {
       'fragmentation-wall',
     ])
     expect(source.match(/^<h3/gm)).toBeNull()
+    expect(source.match(/<(?:AttentionHistoryFigure|PoolIntervalFigure)\s*\/>/g)).toHaveLength(2)
+    expect(source.indexOf('<AttentionHistoryFigure />')).toBeGreaterThan(source.indexOf('在固定软硬件上测'))
+    expect(source.indexOf('<AttentionHistoryFigure />')).toBeLessThan(source.indexOf('id="kv-byte-ledger"'))
+    expect(source.indexOf('<PoolIntervalFigure />')).toBeGreaterThan(source.indexOf('而是“搬去哪”'))
+    expect(source.indexOf('<PoolIntervalFigure />')).toBeLessThan(source.indexOf('id="fragmentation-wall"'))
   })
 
   it('derives the cache from recompute before naming it', () => {
