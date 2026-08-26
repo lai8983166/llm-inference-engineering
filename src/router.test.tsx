@@ -95,6 +95,7 @@ describe('minimal course routes', () => {
     expect(screen.getByRole('navigation', { name: '本章内容' })).toBeInTheDocument()
     expect(document.querySelectorAll('.chapter-prose > h2')).toHaveLength(5)
     expect(document.querySelectorAll('.chapter-prose')).toHaveLength(1)
+    expect(screen.getAllByRole('figure')).toHaveLength(2)
     expect(screen.queryByText(/学习进度|掌握率/)).not.toBeInTheDocument()
     expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /上一章 · 03.*KV 为什么成为系统状态/ })).toHaveAttribute('href', '/chapters/kv-state')
     expect(within(screen.getByRole('navigation', { name: '章节导航' })).queryByRole('link', { name: /下一章/ })).not.toBeInTheDocument()

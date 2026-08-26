@@ -15,7 +15,11 @@ describe('chapter four prose contract', () => {
       'block-size-tradeoff',
     ])
     expect(source.match(/^<h3/gm)).toBeNull()
-    expect(source.match(/Figure\s*\/>/g)).toBeNull()
+    expect(source.match(/<(?:BlockTableTranslationFigure|BlockPoolEvolutionFigure)\s*\/>/g)).toHaveLength(2)
+    expect(source.indexOf('<BlockTableTranslationFigure />')).toBeGreaterThan(source.indexOf('它换来的东西在下一节兑现'))
+    expect(source.indexOf('<BlockTableTranslationFigure />')).toBeLessThan(source.indexOf('id="block-pool"'))
+    expect(source.indexOf('<BlockPoolEvolutionFigure />')).toBeGreaterThan(source.indexOf('其他请求的表项与块不受波及'))
+    expect(source.indexOf('<BlockPoolEvolutionFigure />')).toBeLessThan(source.indexOf('id="block-size-tradeoff"'))
   })
 
   it('judges candidate layouts by the chapter three contracts, not framework structures', () => {
