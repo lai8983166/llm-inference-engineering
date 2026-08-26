@@ -301,11 +301,19 @@ export function buildBlockPoolTrace(
         state.table.push(block)
         builder.emit(logicalStep, request.id, 'table-entry', { block })
       }
-      const lease = lastBlockOf(builder, request.id)
-      lease.usedTokens = demand % fixture.blockSizeTokens === 0 ? fixture.blockSizeTokens : demand % fixture.blockSizeTokens
+      // prefill 可能一次拿多块：前面的块整块填满，只有最后一块留余位。
+      const fullBlocks = Math.floor(demand / fixture.blockSizeTokens)
+      state.table.forEach((block, index) => {
+        const lease = builder.blocks.find((item) => item.block === block)!
+        lease.usedTokens = index < fullBlocks
+          ? fixture.blockSizeTokens
+          : index === fullBlocks
+            ? demand % fixture.blockSizeTokens
+            : 0
+      })
       state.cachedTokens = demand
       state.generatedTokens = 1
-      builder.emit(logicalStep, request.id, 'appended', { block: lease.block, tokens: demand })
+      builder.emit(logicalStep, request.id, 'appended', { block: state.table[state.table.length - 1], tokens: demand })
       if (state.generatedTokens === request.outputTokens) {
         state.inFlightReads = 1
         finishers.push(request)
@@ -448,6 +456,16 @@ export function validateBlockPoolTrace(trace: BlockPoolTrace): string[] {
     }
     const freeBlocks = pool.blocks.filter((lease) => lease.owner === null).length
     if (freeBlocks !== pool.freeBlocks) issues.push(`事件 ${pool.afterEventSequence} 后空闲块计数不一致。`)
+    // 持有中的请求：各块用量之和必须等于它账面上的缓存 token 数。
+    for (const snapshot of trace.tableSnapshots.filter((item) => item.afterEventSequence === pool.afterEventSequence)) {
+      if (snapshot.heldBlocks === 0) continue
+      const heldUnits = pool.blocks
+        .filter((lease) => lease.owner === snapshot.requestId)
+        .reduce((total, lease) => total + lease.usedTokens, 0)
+      if (heldUnits !== snapshot.cachedTokens) {
+        issues.push(`事件 ${pool.afterEventSequence} 后请求 ${snapshot.requestId} 的块用量合计 ${heldUnits} 不等于缓存 ${snapshot.cachedTokens}。`)
+      }
+    }
   }
 
   for (const request of trace.requests) {

@@ -1,4 +1,6 @@
 import { BlockPoolEvolutionFigure, BlockTableTranslationFigure } from '@/visuals/PagedKvFigures'
+import { BlockEventPractice } from '@/learning/BlockEventPractice'
+import { BlockLayoutAssessment } from '@/learning/BlockLayoutAssessment'
 
 第 03 章把两种连续 KV 布局逼到失败后留下一个问题：token 的逻辑顺序必须连续，但物理存储是否必须是单一连续区间？同时留下四条任何替代布局必须保住的合同——逻辑位置到存储位置的映射、每步末尾追加一个位置、在途读取依赖权威状态、请求独立的终结与回收。本章沿着这两样东西推进：先看“拆开存”保不保得住语义，再看哪种拆法是约束真正逼出来的形状。
 
@@ -63,3 +65,7 @@ step 0，`R-long` 到达，prefill 写入 7 个 token：`⌈7/4⌉ = 2` 块，�
 还有两件事这张表算不出来。第一，真实成本：表项多寡影响簿记内存，间接寻址影响 kernel 沿表访问的形状，但两者换算成真实耗时或带宽必须在指定软硬件上测量，教学计数不能替代。真实框架确实把块布局一路带进了 attention kernel——kernel 直接按块表访问散布的 K/V——这是版本锁定的实现示例，不是本章推导的终点。第二，块池解决了“放得下”，没有解决“给谁”：最后一个空闲块给新请求还是给正在增长的请求，是准入与调度问题；多个请求共享同一段前缀 K/V 时块的所有权归谁，是共享问题。它们连同写时复制、kernel 访问的效率边界，一起留给后续章节。本章交付的是合同清单：逻辑位置经块表映射到块内偏移、追加先取块再登记、读取依赖权威块内容、请求按块独立终结回收——任何后续机制都必须保住这四条，就像第 03 章的四条被本章保住一样。
 
 最后重申证据边界。本章的块编号、表项与逻辑步是整数教学单位：它们能证明的是在这些规则下，定长块如何取消尺寸匹配、同一池的第三种结局如何产生、浪费与间接如何随 B 反向变化。真实 GPU 的块粒度、表项内存占用、间接寻址耗时与 OOM 行为必须实测；教学计数不是选型依据，正如 128 bytes/token 不是真实模型的常数。
+
+<BlockEventPractice />
+
+<BlockLayoutAssessment />

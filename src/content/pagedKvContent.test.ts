@@ -84,6 +84,13 @@ describe('chapter four prose contract', () => {
     expect(source).toContain('版本锁定的实现示例，不是本章推导的终点')
   })
 
+  it('places practice and transfer assessment after the complete prose', () => {
+    expect(source.match(/<(?:BlockEventPractice|BlockLayoutAssessment)\s*\/>/g)).toHaveLength(2)
+    expect(source.indexOf('<BlockEventPractice />')).toBeGreaterThan(source.indexOf('id="block-size-tradeoff"'))
+    expect(source.indexOf('<BlockLayoutAssessment />')).toBeGreaterThan(source.indexOf('<BlockEventPractice />'))
+    expect(source.indexOf('<BlockEventPractice />')).toBeGreaterThan(source.indexOf('教学计数不是选型依据'))
+  })
+
   it('closes on the unsolved admission and sharing questions with evidence boundaries', () => {
     expect(source).toContain('最后一个空闲块给新请求还是给正在增长的请求')
     expect(source).toContain('共享同一段前缀 K/V 时块的所有权归谁')
