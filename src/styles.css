@@ -138,6 +138,10 @@ button, input, textarea, select { font: inherit; }
 .paged-kv-chapter-reading { margin-top: 20px; }
 .paged-kv-chapter-reading .chapter-prose > p:first-of-type { margin-top: 0; }
 
+.scheduling-chapter-header { grid-template-columns: minmax(380px, .9fr) minmax(480px, 1.1fr); }
+.scheduling-chapter-reading { margin-top: 20px; }
+.scheduling-chapter-reading .chapter-prose > p:first-of-type { margin-top: 0; }
+
 .concurrency-figure { width: min(1040px, calc(100vw - 64px)); overflow: hidden; margin: 70px 0 86px -70px; color: #f4f3eb; background: #11130f; border: 1px solid #34382f; box-shadow: 11px 11px 0 var(--blue); }
 .concurrency-figure strong { color: inherit; box-shadow: none; }
 .concurrency-figure-header { display: flex; gap: 22px; align-items: center; justify-content: space-between; min-height: 82px; padding: 16px 20px; border-bottom: 1px solid #383c33; }

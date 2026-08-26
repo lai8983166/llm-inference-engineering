@@ -41,6 +41,9 @@ export function HomePage() {
           <li>
             <Link to="/chapters/paged-kv"><b>04</b><span><strong>分页 KV 怎样被逼出来</strong><small>从布局合同推导离散分段、固定块、块表与块池</small></span></Link>
           </li>
+          <li>
+            <Link to="/chapters/scheduling"><b>05</b><span><strong>下一拍执行谁</strong><small>从执行边界推导可运行集合、连续批处理与策略合同</small></span></Link>
+          </li>
         </ol>
       </section>
     </article>

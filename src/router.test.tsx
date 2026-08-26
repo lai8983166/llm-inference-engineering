@@ -20,6 +20,7 @@ describe('minimal course routes', () => {
       '/chapters/naive-concurrency',
       '/chapters/kv-state',
       '/chapters/paged-kv',
+      '/chapters/scheduling',
     ])
   })
 
@@ -102,6 +103,18 @@ describe('minimal course routes', () => {
     expect(screen.getByRole('heading', { level: 2, name: '用新块池验收布局账本' })).toBeInTheDocument()
     expect(screen.queryByText(/学习进度|掌握率/)).not.toBeInTheDocument()
     expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /上一章 · 03.*KV 为什么成为系统状态/ })).toHaveAttribute('href', '/chapters/kv-state')
+    expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /下一章 · 05.*下一拍执行谁/ })).toHaveAttribute('href', '/chapters/scheduling')
+  })
+
+  it('renders chapter five with the scheduling manifest and no unpublished next chapter', () => {
+    renderRoute('/chapters/scheduling')
+    expect(screen.getByRole('heading', { level: 1, name: /下一拍\s*执行谁/ })).toBeInTheDocument()
+    expect(screen.getByRole('complementary', { name: '第 05 章固定调度输入' })).toBeInTheDocument()
+    expect(screen.getByRole('navigation', { name: '本章内容' })).toBeInTheDocument()
+    expect(document.querySelectorAll('.chapter-prose > h2')).toHaveLength(5)
+    expect(document.querySelectorAll('.chapter-prose')).toHaveLength(1)
+    expect(screen.queryByText(/学习进度|掌握率/)).not.toBeInTheDocument()
+    expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /上一章 · 04.*分页 KV 怎样被逼出来/ })).toHaveAttribute('href', '/chapters/paged-kv')
     expect(within(screen.getByRole('navigation', { name: '章节导航' })).queryByRole('link', { name: /下一章/ })).not.toBeInTheDocument()
   })
 

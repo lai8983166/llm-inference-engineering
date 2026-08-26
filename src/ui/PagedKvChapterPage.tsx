@@ -42,7 +42,10 @@ export function PagedKvChapterPage() {
         </nav>
         <div className="chapter-prose"><PagedKvChapter /></div>
       </div>
-      <ChapterNavigation previous={{ number: '03', title: 'KV 为什么成为系统状态', to: '/chapters/kv-state' }} />
+      <ChapterNavigation
+        previous={{ number: '03', title: 'KV 为什么成为系统状态', to: '/chapters/kv-state' }}
+        next={{ number: '05', title: '下一拍执行谁', to: '/chapters/scheduling' }}
+      />
     </article>
   )
 }
