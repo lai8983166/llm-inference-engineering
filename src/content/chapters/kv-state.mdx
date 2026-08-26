@@ -1,4 +1,6 @@
 import { AttentionHistoryFigure, PoolIntervalFigure } from '@/visuals/KvStateFigures'
+import { KvMemoryEventPractice } from '@/learning/KvMemoryEventPractice'
+import { KvStateAssessment } from '@/learning/KvStateAssessment'
 
 第 02 章结束时，三个请求的执行组织被压成一句话：下一次执行该选谁。但这句话有一个没写出来的前提——被选中的请求把它的 KV 放在哪里、还放得下多少。第 01 章只给过一句承诺：请求终止时要等在途工作结束再释放 KV。现在必须把这份使用权变成可计算、可追踪的系统状态：它为什么存在、占多少字节、怎样增长、何时归谁所有。
 
@@ -105,3 +107,7 @@ step 0，`R-long` 预留 `[0,16)`，写入 7 个 unit 的有效 KV（prompt 6 �
 于是留下一个形式化的问题。token 的逻辑顺序必须连续：位置 0…n 的语义、因果可见范围、按位置的读取都建立在它上面；但物理存储是否必须是单一连续区间？两条连续方案共同维护的合同可以列出来：逻辑位置到存储位置的映射、每步在末尾追加一个位置、在途读取依赖权威地址、请求独立地终结与回收。任何替代布局必须原样保住这四条。至于它怎样保住——那是下一章的事。
 
 最后重申证据边界。本章的池、地址、unit 与逻辑步都是整数教学单位：它们能证明的是在这些明确规则下，哪些申请会失败、失败应归因于哪一类容量问题；不能证明真实 GPU 的显存粒度、复制带宽或 OOM 行为，那些判断必须在指定软硬件上测量。碎片与预留浪费本身也不是教学虚构——已发表的服务系统分析记录过同样的现象——但本章的每个数字只对本章的规则负责。
+
+<KvMemoryEventPractice />
+
+<KvStateAssessment />

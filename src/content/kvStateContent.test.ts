@@ -80,6 +80,13 @@ describe('chapter three prose contract', () => {
     }
   })
 
+  it('places practice and transfer assessment after the complete prose', () => {
+    expect(source.match(/<(?:KvMemoryEventPractice|KvStateAssessment)\s*\/>/g)).toHaveLength(2)
+    expect(source.indexOf('<KvMemoryEventPractice />')).toBeGreaterThan(source.indexOf('id="fragmentation-wall"'))
+    expect(source.indexOf('<KvStateAssessment />')).toBeGreaterThan(source.indexOf('<KvMemoryEventPractice />'))
+    expect(source.indexOf('<KvMemoryEventPractice />')).toBeGreaterThan(source.indexOf('只对本章的规则负责'))
+  })
+
   it('keeps simulated evidence boundaries instead of performance claims', () => {
     expect(source).toContain('整数教学单位')
     expect(source).toContain('不能证明真实 GPU')

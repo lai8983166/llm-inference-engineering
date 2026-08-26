@@ -222,6 +222,19 @@ button, input, textarea, select { font: inherit; }
 .event-ledger em { color: inherit; font-style: normal; }
 .event-ledger small { color: inherit; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .55rem; }
 
+.kv-order-exercise { margin-top: 44px; }
+.kv-order-exercise h3 { margin: 0 0 12px; font-family: "Noto Serif SC", ui-serif, Georgia, serif; font-size: 1.3rem; letter-spacing: -.02em; }
+.kv-order-exercise > p { color: #4f524a; line-height: 1.8; }
+.kv-order-selected { display: grid; gap: 8px; margin: 18px 0; padding: 0; list-style: none; }
+.kv-order-selected li { display: grid; grid-template-columns: 92px 1fr; gap: 12px; align-items: center; min-height: 46px; padding: 8px 14px; background: rgba(250, 248, 241, .72); border: 1px solid var(--line); color: #4f524a; font-size: .74rem; }
+.kv-order-selected li > b { color: #11130f; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .66rem; }
+.kv-order-options { display: flex; gap: 8px; flex-wrap: wrap; }
+.kv-order-options button { padding: 8px 12px; color: #4f524a; background: transparent; border: 1px solid #4a4e43; font-size: .68rem; cursor: pointer; }
+.kv-order-options button:disabled { opacity: .35; cursor: not-allowed; }
+.kv-order-controls { display: flex; gap: 10px; margin-top: 16px; }
+.kv-order-controls button[type="button"]:not(.practice-primary) { padding: 8px 12px; color: #4f524a; background: transparent; border: 1px solid #4a4e43; font-size: .7rem; cursor: pointer; }
+.practice-evidence-note { margin-top: 6px; color: #8a8d83; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .58rem; }
+
 .batch-occupancy-figure { box-shadow: 11px 11px 0 var(--orange); }
 .batch-occupancy-workbench { overflow-x: auto; padding: 28px; }
 .occupancy-grid { display: grid; grid-template-columns: 116px repeat(var(--occupancy-columns), minmax(95px, 1fr)); min-width: 820px; }
