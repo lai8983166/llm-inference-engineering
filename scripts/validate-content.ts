@@ -9,8 +9,9 @@ const files = [
   'src/content/chapters/kv-state.mdx',
   'src/content/chapters/paged-kv.mdx',
   'src/content/chapters/scheduling.mdx',
+  'src/content/chapters/overload.mdx',
 ]
-const knownRoutes = ['/', '/chapters/trustworthy-baseline', '/chapters/single-request', '/chapters/naive-concurrency', '/chapters/kv-state', '/chapters/paged-kv', '/chapters/scheduling']
+const knownRoutes = ['/', '/chapters/trustworthy-baseline', '/chapters/single-request', '/chapters/naive-concurrency', '/chapters/kv-state', '/chapters/paged-kv', '/chapters/scheduling', '/chapters/overload']
 let failed = false
 
 for (const file of files) {

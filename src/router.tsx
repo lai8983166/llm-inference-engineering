@@ -6,6 +6,7 @@ import { ConcurrencyChapterPage } from '@/ui/ConcurrencyChapterPage'
 import { HomePage } from '@/ui/HomePage'
 import { KvStateChapterPage } from '@/ui/KvStateChapterPage'
 import { NotFoundPage } from '@/ui/NotFoundPage'
+import { OverloadChapterPage } from '@/ui/OverloadChapterPage'
 import { PagedKvChapterPage } from '@/ui/PagedKvChapterPage'
 import { SchedulingChapterPage } from '@/ui/SchedulingChapterPage'
 
@@ -20,6 +21,7 @@ export const routes: RouteObject[] = [
       { path: 'chapters/kv-state', element: <KvStateChapterPage /> },
       { path: 'chapters/paged-kv', element: <PagedKvChapterPage /> },
       { path: 'chapters/scheduling', element: <SchedulingChapterPage /> },
+      { path: 'chapters/overload', element: <OverloadChapterPage /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },

@@ -44,6 +44,9 @@ export function HomePage() {
           <li>
             <Link to="/chapters/scheduling"><b>05</b><span><strong>下一拍执行谁</strong><small>从执行边界推导可运行集合、连续批处理与策略合同</small></span></Link>
           </li>
+          <li>
+            <Link to="/chapters/overload"><b>06</b><span><strong>过载的成本由谁承担</strong><small>让池见底，比较排队、拒绝、水位与抢占四种成本分配</small></span></Link>
+          </li>
         </ol>
       </section>
     </article>

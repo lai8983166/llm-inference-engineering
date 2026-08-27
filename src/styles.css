@@ -142,6 +142,10 @@ button, input, textarea, select { font: inherit; }
 .scheduling-chapter-reading { margin-top: 20px; }
 .scheduling-chapter-reading .chapter-prose > p:first-of-type { margin-top: 0; }
 
+.overload-chapter-header { grid-template-columns: minmax(380px, .9fr) minmax(480px, 1.1fr); }
+.overload-chapter-reading { margin-top: 20px; }
+.overload-chapter-reading .chapter-prose > p:first-of-type { margin-top: 0; }
+
 .runnable-set-workbench { overflow-x: auto; padding: 28px; }
 .runnable-tick-axis { grid-template-columns: repeat(7, minmax(74px, 1fr)); min-width: 620px; margin: 0 0 20px; }
 .arrival-ledger { min-width: 680px; margin-bottom: 18px; padding: 14px 16px; border: 1px solid #3a3e34; }

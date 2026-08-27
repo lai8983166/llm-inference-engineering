@@ -42,7 +42,10 @@ export function SchedulingChapterPage() {
         </nav>
         <div className="chapter-prose"><SchedulingChapter /></div>
       </div>
-      <ChapterNavigation previous={{ number: '04', title: '分页 KV 怎样被逼出来', to: '/chapters/paged-kv' }} />
+      <ChapterNavigation
+        previous={{ number: '04', title: '分页 KV 怎样被逼出来', to: '/chapters/paged-kv' }}
+        next={{ number: '06', title: '过载的成本由谁承担', to: '/chapters/overload' }}
+      />
     </article>
   )
 }

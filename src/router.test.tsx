@@ -21,6 +21,7 @@ describe('minimal course routes', () => {
       '/chapters/kv-state',
       '/chapters/paged-kv',
       '/chapters/scheduling',
+      '/chapters/overload',
     ])
   })
 
@@ -120,6 +121,18 @@ describe('minimal course routes', () => {
     expect(screen.getByRole('heading', { level: 2, name: '用新工作量验收调度账本' })).toBeInTheDocument()
     expect(screen.queryByText(/学习进度|掌握率/)).not.toBeInTheDocument()
     expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /上一章 · 04.*分页 KV 怎样被逼出来/ })).toHaveAttribute('href', '/chapters/paged-kv')
+    expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /下一章 · 06.*过载的成本由谁承担/ })).toHaveAttribute('href', '/chapters/overload')
+  })
+
+  it('renders chapter six with the overload manifest and no unpublished next chapter', () => {
+    renderRoute('/chapters/overload')
+    expect(screen.getByRole('heading', { level: 1, name: /过载的成本\s*由谁承担/ })).toBeInTheDocument()
+    expect(screen.getByRole('complementary', { name: '第 06 章固定过载输入' })).toBeInTheDocument()
+    expect(screen.getByRole('navigation', { name: '本章内容' })).toBeInTheDocument()
+    expect(document.querySelectorAll('.chapter-prose > h2')).toHaveLength(5)
+    expect(document.querySelectorAll('.chapter-prose')).toHaveLength(1)
+    expect(screen.queryByText(/学习进度|掌握率/)).not.toBeInTheDocument()
+    expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /上一章 · 05.*下一拍执行谁/ })).toHaveAttribute('href', '/chapters/scheduling')
     expect(within(screen.getByRole('navigation', { name: '章节导航' })).queryByRole('link', { name: /下一章/ })).not.toBeInTheDocument()
   })
 
