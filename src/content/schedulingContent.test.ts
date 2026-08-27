@@ -15,6 +15,11 @@ describe('chapter five prose contract', () => {
       'policy-contracts',
     ])
     expect(source.match(/^<h3/gm)).toBeNull()
+    expect(source.match(/<(?:RunnableSetFigure|PolicyTimelineFigure)\s*\/>/g)).toHaveLength(2)
+    expect(source.indexOf('<RunnableSetFigure />')).toBeGreaterThan(source.indexOf('不是它的出处'))
+    expect(source.indexOf('<RunnableSetFigure />')).toBeLessThan(source.indexOf('id="prefill-decode-contention"'))
+    expect(source.indexOf('<PolicyTimelineFigure />')).toBeGreaterThan(source.indexOf('要靠测量说话'))
+    expect(source.indexOf('<PolicyTimelineFigure />')).toBeLessThan(source.indexOf('id="policy-contracts"'))
   })
 
   it('formalizes the tick before any mechanism name', () => {
