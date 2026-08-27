@@ -1,4 +1,6 @@
 import { PolicyTimelineFigure, RunnableSetFigure } from '@/visuals/SchedulingFigures'
+import { TickLedgerPractice } from '@/learning/TickLedgerPractice'
+import { SchedulingTransferAssessment } from '@/learning/SchedulingTransferAssessment'
 
 第 02 章结束时把三种朴素执行组织压成一句话：下一次执行该选谁。当时答不了，因为一次选择需要哪些输入还不齐全。第 03 章让 KV 成为有所有权、有账本的容量状态，第 04 章把布局变成按块准入的池。现在输入齐了，本章把那个问题拆开：这一拍**可以**执行谁（可运行集合），以及从中**选谁**（策略）——并让“批次不再封闭”成为推导的结果，而不是框架的赠品。
 
@@ -61,3 +63,7 @@ import { PolicyTimelineFigure, RunnableSetFigure } from '@/visuals/SchedulingFig
 仍有三件事本章刻意没碰。容量压力下的准入策略——拒绝、排队还是抢占，等待换什么——是下一章的入口。公平性——decode 优先会不会永远饿死持续到达的新请求，prefill 优先会不会拖死长请求的尾段——需要度量与策略双重回答。以及真实框架在这四条合同上的具体取值——它们随版本演进，引用必须锁定版本，而取值好坏必须回到测量。本章交付的是合同清单本身，以及一个判断力：看到任何一个调度器，先问它每拍回答了什么、没回答什么，而不是问它叫什么名字。
 
 最后重申证据边界。本章的拍、状态与等待全部来自确定性教学轨迹：它们能证明的是在明确规则下，成员重组如何消除封闭批次的批外等待、策略如何迁移等待的承担者。它们不能证明任何真实系统的延迟、吞吐或公平性；那些判断需要在固定负载与环境上测量，正如前四章的每个数字只对本章的规则负责。
+
+<TickLedgerPractice />
+
+<SchedulingTransferAssessment />

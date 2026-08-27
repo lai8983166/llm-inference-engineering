@@ -57,6 +57,13 @@ describe('chapter five prose contract', () => {
     expect(source).toContain('要靠测量说话')
   })
 
+  it('places practice and transfer assessment after the complete prose', () => {
+    expect(source.match(/<(?:TickLedgerPractice|SchedulingTransferAssessment)\s*\/>/g)).toHaveLength(2)
+    expect(source.indexOf('<TickLedgerPractice />')).toBeGreaterThan(source.indexOf('id="policy-contracts"'))
+    expect(source.indexOf('<SchedulingTransferAssessment />')).toBeGreaterThan(source.indexOf('<TickLedgerPractice />'))
+    expect(source.indexOf('<TickLedgerPractice />')).toBeGreaterThan(source.indexOf('只对本章的规则负责'))
+  })
+
   it('closes on the scheduling contract list and defers pressure and fairness', () => {
     expect(source).toContain('拍节奏：决定点在哪里')
     expect(source).toContain('可运行定义：六项输入')
