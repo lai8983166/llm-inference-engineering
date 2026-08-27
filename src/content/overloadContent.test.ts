@@ -57,6 +57,12 @@ describe('chapter six prose contract', () => {
     expect(source).toContain('按优先级选抢占受害者')
   })
 
+  it('places practice and transfer assessment after the complete prose', () => {
+    expect(source.match(/<(?:OverloadLedgerPractice|OverloadTransferAssessment)\s*\/>/g)).toHaveLength(2)
+    expect(source.indexOf('<OverloadLedgerPractice />')).toBeGreaterThan(source.indexOf('<CostBillsFigure />'))
+    expect(source.indexOf('<OverloadTransferAssessment />')).toBeGreaterThan(source.indexOf('<OverloadLedgerPractice />'))
+  })
+
   it('closes on four bills and the abandoned-waiter gap', () => {
     expect(source).toContain('| 无界排队 | 7 | 0 | 0 | 0 | 1 | t5 |')
     expect(source).toContain('| 按满拒绝 | 5 | 1（`P-d`） | 0 | 0 | 0 | 被拒 |')

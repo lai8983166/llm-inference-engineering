@@ -1,4 +1,6 @@
 import { CostBillsFigure, OverloadPoolFigure } from '@/visuals/OverloadFigures'
+import { OverloadLedgerPractice } from '@/learning/OverloadLedgerPractice'
+import { OverloadTransferAssessment } from '@/learning/OverloadTransferAssessment'
 
 第 05 章的调度循环在容量充裕时运转良好，但它刻意停在门槛前：当到达持续超过块池的排水能力，“等待块”会从一拍的状态变成一群请求的常态。本章把压力调上去，让池真正见底，然后面对一个不能再绕开的问题：过载的成本已经发生，准入策略唯一能选的，是让谁承担。
 
@@ -67,3 +69,7 @@ import { CostBillsFigure, OverloadPoolFigure } from '@/visuals/OverloadFigures'
 老规矩：这些拍数与计数只在教学规则内成立，不能换算成真实延迟或吞吐——那需要固定负载与环境的测量。最后留一个所有四条策略共同的盲区：它们都假设请求会跑到完成。真实服务里，客户端会断开、会超时、会取消——一个排在队列里的请求若早已被放弃，它占用的等待位置和未来的准入机会就是无效希望；一个被抢占后正在重算的请求若在此刻被取消，重算本身就是浪费。过载策略保护了池，还没有面对“请求本身会消失”这件事——那是第 07 章“正常路径之外的服务语义”的入口。
 
 <CostBillsFigure />
+
+<OverloadLedgerPractice />
+
+<OverloadTransferAssessment />
