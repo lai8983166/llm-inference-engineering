@@ -146,6 +146,31 @@ button, input, textarea, select { font: inherit; }
 .overload-chapter-reading { margin-top: 20px; }
 .overload-chapter-reading .chapter-prose > p:first-of-type { margin-top: 0; }
 
+.overload-pool-workbench { overflow-x: auto; padding: 28px; }
+.dual-strip-scroll { min-width: 880px; }
+.dual-strip-head { display: grid; grid-template-columns: 86px repeat(var(--dual-columns, 8), minmax(84px, 1fr)); margin-bottom: 8px; }
+.dual-strip-head button { margin: 0 3px; padding: 6px 8px; color: #aeb1a7; background: transparent; border: 1px solid #4a4e43; font-size: .62rem; cursor: pointer; }
+.dual-strip-head button[aria-current="step"] { color: #11130f; background: var(--acid); border-color: var(--acid); }
+.dual-strip-row { display: grid; grid-template-columns: 86px repeat(var(--dual-columns, 8), minmax(84px, 1fr)); align-items: end; margin-bottom: 12px; }
+.dual-strip-row > strong { color: var(--acid); font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .62rem; }
+.strip-cell { display: grid; gap: 3px; padding: 0 3px; }
+.strip-cell.is-current { outline: 2px solid white; outline-offset: 2px; }
+.strip-cell span { color: #c8cbc1; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .6rem; text-align: center; }
+.strip-cell i { display: block; height: 46px; background: linear-gradient(to top, #d8ff62 calc(var(--fill, 0) * 100%), #262a22 calc(var(--fill, 0) * 100%)); border: 1px solid #4a4e43; }
+.strip-cell span[data-level="0"] + i { background: #8d351f; }
+.event-ledger em.is-recompute { color: #11130f; background: var(--orange); border-radius: 2px; padding: 1px 4px; }
+.overload-pool-figure .trace-readout { margin-top: 16px; min-width: 880px; }
+
+.cost-bills-workbench { overflow-x: auto; padding: 28px; }
+.cost-bills-table { width: 100%; min-width: 820px; border-collapse: collapse; }
+.cost-bills-table th, .cost-bills-table td { padding: 12px 14px; color: #c8cbc1; border: 1px solid #3a3e34; font-size: .74rem; text-align: left; }
+.cost-bills-table thead th { color: #8e9287; font-size: .62rem; letter-spacing: .04em; }
+.cost-bills-table tbody th button { color: white; background: transparent; border: none; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .74rem; cursor: pointer; text-decoration: underline; }
+.cost-bills-table tbody tr.is-selected { background: #232719; }
+.cost-bills-table tbody tr.is-selected td, .cost-bills-table tbody tr.is-selected th { color: white; }
+.cost-bills-table .bearer-cell { color: var(--acid); font-weight: 700; }
+.cost-bills-figure .trace-readout { margin-top: 16px; }
+
 .runnable-set-workbench { overflow-x: auto; padding: 28px; }
 .runnable-tick-axis { grid-template-columns: repeat(7, minmax(74px, 1fr)); min-width: 620px; margin: 0 0 20px; }
 .arrival-ledger { min-width: 680px; margin-bottom: 18px; padding: 14px 16px; border: 1px solid #3a3e34; }

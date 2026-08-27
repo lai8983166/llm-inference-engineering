@@ -15,6 +15,10 @@ describe('chapter six prose contract', () => {
       'no-free-lunch',
     ])
     expect(source.match(/^<h3/gm)).toBeNull()
+    expect(source.match(/<(?:OverloadPoolFigure|CostBillsFigure)\s*\/>/g)).toHaveLength(2)
+    expect(source.indexOf('<OverloadPoolFigure />')).toBeGreaterThan(source.indexOf('代价全部记在等待者的账上'))
+    expect(source.indexOf('<OverloadPoolFigure />')).toBeLessThan(source.indexOf('id="cost-bearer"'))
+    expect(source.indexOf('<CostBillsFigure />')).toBeGreaterThan(source.indexOf('第 07 章“正常路径之外的服务语义”的入口'))
   })
 
   it('lets the burst empty the pool before any policy name', () => {
