@@ -15,6 +15,11 @@ describe('chapter seven prose contract', () => {
       'no-leak-contract',
     ])
     expect(source.match(/^<h3/gm)).toBeNull()
+    expect(source.match(/<(?:TerminalCoverageFigure|CapacityRecycleFigure)\s*\/>/g)).toHaveLength(2)
+    expect(source.indexOf('<TerminalCoverageFigure />')).toBeGreaterThan(source.indexOf('而不是“全部作废”'))
+    expect(source.indexOf('<TerminalCoverageFigure />')).toBeLessThan(source.indexOf('id="timeout-disconnect"'))
+    expect(source.indexOf('<CapacityRecycleFigure />')).toBeGreaterThan(source.indexOf('原因也是合同的一部分'))
+    expect(source.indexOf('<CapacityRecycleFigure />')).toBeLessThan(source.indexOf('id="failure-isolation"'))
   })
 
   it('models cancellation as state × event before any cleanup detail', () => {
