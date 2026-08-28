@@ -71,6 +71,12 @@ describe('chapter seven prose contract', () => {
     expect(source).toContain('必须实测')
   })
 
+  it('places practice and transfer assessment after the complete prose', () => {
+    expect(source.match(/<(?:TerminationLedgerPractice|TerminationTransferAssessment)\s*\/>/g)).toHaveLength(2)
+    expect(source.indexOf('<TerminationLedgerPractice />')).toBeGreaterThan(source.indexOf('只对本章的规则负责'))
+    expect(source.indexOf('<TerminationTransferAssessment />')).toBeGreaterThan(source.indexOf('<TerminationLedgerPractice />'))
+  })
+
   it('keeps counts inside the evidence boundary', () => {
     expect(source).toContain('不换算为真实延迟、可靠性或资源回收收益')
     for (const forbidden of ['GB/s', '利用率', 'TTFT', 'ITL', '毫秒']) {

@@ -1,4 +1,6 @@
 import { CapacityRecycleFigure, TerminalCoverageFigure } from '@/visuals/TerminationFigures'
+import { TerminationLedgerPractice } from '@/learning/TerminationLedgerPractice'
+import { TerminationTransferAssessment } from '@/learning/TerminationTransferAssessment'
 
 第 06 章的四条过载策略共享一个盲区：它们都假设请求会跑到完成。真实服务里，客户端会取消、会超时、会断开，引擎自己也会失败——终止是可以落在任何状态的外部事件。本章与第 01 章互为镜像：那章讲一次请求怎样活着，这章讲它怎样体面地死去——每个终点路径都走到同一次清理，且这笔账可以被机器逐事件校验。
 
@@ -58,3 +60,7 @@ import { CapacityRecycleFigure, TerminalCoverageFigure } from '@/visuals/Termina
 这份合同还有一个身份：终态事件是**可观测的终点**。第 00 章说过，没有事件就没有证据；本章结束时，每个请求的一生都被压缩成一个带原因的终态记录——eos、length、取消、超时、断开、失败，各占其位。下一章要建立的一切指标——完成率、失败率、无效希望占比、清理的完整性——都以这些终态事件为原料。指标不是凭空统计，而是对可观测终点的聚合；本章交付的就是那个终点。
 
 老规矩：拍数与计数只在教学规则内成立，不换算为真实延迟、可靠性或资源回收收益——清理在真实引擎中的耗时、断开检测的延迟、故障的真实发生率，都必须实测。正如前六章的每个数字只对本章的规则负责。
+
+<TerminationLedgerPractice />
+
+<TerminationTransferAssessment />
