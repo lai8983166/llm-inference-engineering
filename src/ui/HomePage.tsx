@@ -47,6 +47,9 @@ export function HomePage() {
           <li>
             <Link to="/chapters/overload"><b>06</b><span><strong>过载的成本由谁承担</strong><small>让池见底，比较排队、拒绝、水位与抢占四种成本分配</small></span></Link>
           </li>
+          <li>
+            <Link to="/chapters/termination"><b>07</b><span><strong>一次请求怎样死去</strong><small>把取消、超时、断开与失败纳入同一套清理与无泄漏合同</small></span></Link>
+          </li>
         </ol>
       </section>
     </article>

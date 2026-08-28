@@ -42,7 +42,10 @@ export function OverloadChapterPage() {
         </nav>
         <div className="chapter-prose"><OverloadChapter /></div>
       </div>
-      <ChapterNavigation previous={{ number: '05', title: '下一拍执行谁', to: '/chapters/scheduling' }} />
+      <ChapterNavigation
+        previous={{ number: '05', title: '下一拍执行谁', to: '/chapters/scheduling' }}
+        next={{ number: '07', title: '一次请求怎样死去', to: '/chapters/termination' }}
+      />
     </article>
   )
 }

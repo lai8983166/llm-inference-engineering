@@ -9,6 +9,7 @@ import { NotFoundPage } from '@/ui/NotFoundPage'
 import { OverloadChapterPage } from '@/ui/OverloadChapterPage'
 import { PagedKvChapterPage } from '@/ui/PagedKvChapterPage'
 import { SchedulingChapterPage } from '@/ui/SchedulingChapterPage'
+import { TerminationChapterPage } from '@/ui/TerminationChapterPage'
 
 export const routes: RouteObject[] = [
   {
@@ -22,6 +23,7 @@ export const routes: RouteObject[] = [
       { path: 'chapters/paged-kv', element: <PagedKvChapterPage /> },
       { path: 'chapters/scheduling', element: <SchedulingChapterPage /> },
       { path: 'chapters/overload', element: <OverloadChapterPage /> },
+      { path: 'chapters/termination', element: <TerminationChapterPage /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },

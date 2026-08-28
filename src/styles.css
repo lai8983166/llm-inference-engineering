@@ -146,6 +146,10 @@ button, input, textarea, select { font: inherit; }
 .overload-chapter-reading { margin-top: 20px; }
 .overload-chapter-reading .chapter-prose > p:first-of-type { margin-top: 0; }
 
+.termination-chapter-header { grid-template-columns: minmax(380px, .9fr) minmax(480px, 1.1fr); }
+.termination-chapter-reading { margin-top: 20px; }
+.termination-chapter-reading .chapter-prose > p:first-of-type { margin-top: 0; }
+
 .overload-pool-workbench { overflow-x: auto; padding: 28px; }
 .dual-strip-scroll { min-width: 880px; }
 .dual-strip-head { display: grid; grid-template-columns: 86px repeat(var(--dual-columns, 8), minmax(84px, 1fr)); margin-bottom: 8px; }
