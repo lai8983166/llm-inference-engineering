@@ -15,6 +15,11 @@ describe('chapter eight prose contract', () => {
       'aggregation-chain',
     ])
     expect(source.match(/^<h3/gm)).toBeNull()
+    expect(source.match(/<(?:EventToDistributionFigure|LoopComparisonFigure)\s*\/>/g)).toHaveLength(2)
+    expect(source.indexOf('<EventToDistributionFigure />')).toBeGreaterThan(source.indexOf('先查边界，再查数字'))
+    expect(source.indexOf('<EventToDistributionFigure />')).toBeLessThan(source.indexOf('id="distribution-not-mean"'))
+    expect(source.indexOf('<LoopComparisonFigure />')).toBeGreaterThan(source.indexOf('报告必须声明它'))
+    expect(source.indexOf('<LoopComparisonFigure />')).toBeLessThan(source.indexOf('id="goodput"'))
   })
 
   it('pins definitions to event pairs before any metric number', () => {

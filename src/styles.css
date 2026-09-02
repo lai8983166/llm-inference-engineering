@@ -154,6 +154,43 @@ button, input, textarea, select { font: inherit; }
 .metrics-chapter-reading { margin-top: 20px; }
 .metrics-chapter-reading .chapter-prose > p:first-of-type { margin-top: 0; }
 
+.aggregation-chain-workbench { overflow-x: auto; padding: 28px; }
+.request-switch { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 14px; }
+.request-switch button { padding: 6px 10px; color: #aeb1a7; background: transparent; border: 1px solid #4a4e43; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .64rem; cursor: pointer; }
+.request-switch button[aria-pressed="true"] { color: #11130f; background: var(--acid); border-color: var(--acid); }
+.event-ruler { display: grid; grid-template-columns: repeat(8, minmax(72px, 1fr)); min-width: 640px; margin-bottom: 8px; }
+.event-ruler span { display: grid; gap: 3px; min-height: 44px; padding: 6px; place-items: center; color: #6d7166; border: 1px solid #2c2f27; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .55rem; }
+.event-ruler span.has-event { color: #c8cbc1; background: #232719; border-color: #4a4e43; }
+.event-ruler span b { color: var(--acid); font-size: .62rem; }
+.event-ruler-note { margin: 0 0 18px; color: #8e9287; font-size: .72rem; }
+.event-ruler-note strong { color: #f4f3eb; }
+.distribution-panel { min-width: 680px; }
+.distribution-row { display: grid; gap: 8px; margin-bottom: 14px; }
+.distribution-row > strong { color: var(--acid); font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .68rem; }
+.sorted-strip { display: flex; gap: 4px; flex-wrap: wrap; margin: 0; padding: 0; list-style: none; }
+.sorted-strip li { display: grid; min-width: 44px; min-height: 40px; place-items: center; color: #11130f; background: #9aa76a; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .7rem; }
+.sorted-strip li[data-role="p50"] { background: #d8ff62; outline: 2px solid #f4f3eb; }
+.sorted-strip li[data-role="p99"] { background: #f0b429; color: #11130f; outline: 2px solid #f4f3eb; }
+.sorted-strip li[data-breach="true"] { background: #f05a35; color: white; }
+.distribution-row > small { color: #8e9287; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .62rem; }
+.distribution-note { margin: 0; color: #8e9287; font-size: .72rem; }
+.aggregation-chain-figure .trace-readout { margin-top: 16px; min-width: 680px; }
+
+.loop-comparison-workbench { overflow-x: auto; padding: 28px; }
+.loop-strip-scroll { min-width: 900px; }
+.loop-strip-head { display: grid; grid-template-columns: 86px repeat(var(--loop-columns, 17), minmax(46px, 1fr)); margin-bottom: 8px; }
+.loop-strip-head button { margin: 0 2px; padding: 6px 6px; color: #aeb1a7; background: transparent; border: 1px solid #4a4e43; font-size: .58rem; cursor: pointer; }
+.loop-strip-head button[aria-current="step"] { color: #11130f; background: var(--acid); border-color: var(--acid); }
+.loop-strip-row { display: grid; grid-template-columns: 86px repeat(var(--loop-columns, 17), minmax(46px, 1fr)); align-items: end; margin-bottom: 10px; }
+.loop-strip-row > strong { color: var(--acid); font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .62rem; }
+.loop-strip-row > span { display: grid; min-height: 30px; padding: 4px 2px; place-items: center; color: #8e9287; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .55rem; text-align: center; }
+.loop-queue-row .strip-cell { display: grid; gap: 2px; padding: 0 2px; }
+.loop-queue-row .strip-cell span { color: #c8cbc1; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .58rem; text-align: center; }
+.loop-queue-row .strip-cell i { display: block; height: 34px; background: linear-gradient(to top, #d8ff62 calc(var(--fill, 0) * 100%), #262a22 calc(var(--fill, 0) * 100%)); border: 1px solid #4a4e43; }
+.loop-queue-row .strip-cell span[data-level="0"] + i { background: #8d351f; }
+.loop-queue-row .strip-cell.is-current { outline: 2px solid white; outline-offset: 2px; }
+.loop-comparison-figure .trace-readout { margin-top: 16px; min-width: 900px; }
+
 .terminal-coverage-workbench { overflow-x: auto; padding: 28px; }
 .terminal-bands { display: grid; grid-template-columns: 96px repeat(var(--terminal-columns, 6), minmax(148px, 1fr)); min-width: 1080px; }
 .terminal-bands > button { margin: 0 3px 10px; padding: 7px 9px; color: #aeb1a7; background: transparent; border: 1px solid #4a4e43; font-size: .65rem; cursor: pointer; }
