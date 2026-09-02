@@ -74,6 +74,12 @@ describe('chapter nine prose contract', () => {
     expect(source).toContain('缺一样，就还只是故事')
   })
 
+  it('places practice and transfer assessment after the complete prose', () => {
+    expect(source.match(/<(?:OptimizationReportPractice|OptimizationTransferAssessment)\s*\/>/g)).toHaveLength(2)
+    expect(source.indexOf('<OptimizationReportPractice />')).toBeGreaterThan(source.indexOf('缺一样，就还只是故事'))
+    expect(source.indexOf('<OptimizationTransferAssessment />')).toBeGreaterThan(source.indexOf('<OptimizationReportPractice />'))
+  })
+
   it('keeps every number inside the budget evidence boundary', () => {
     expect(source).toContain('整数教学单位，不是时间')
     expect(source).toContain('占比因模型、形状与硬件而异')

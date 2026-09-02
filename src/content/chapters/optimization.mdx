@@ -1,4 +1,6 @@
 import { BudgetGainFigure, NoiseControlFigure } from '@/visuals/OptimizationFigures'
+import { OptimizationReportPractice } from '@/learning/OptimizationReportPractice'
+import { OptimizationTransferAssessment } from '@/learning/OptimizationTransferAssessment'
 
 第 08 章把指标异常指向了层——排队、prefill、decode。但从"哪一层慢"到"值得优化"之间还有一道被反复踩中的坑：优化了局部，端到端没变快。kernel 时间减半而服务指标不动的报告无处不在——不是优化错了，是它优化的部件在端到端账本里占比太小，或瓶颈根本在别处。本章是共同主线的最后一章：把九章攒下的测量合同、指标口径与归因指向，合成一套优化的因果归因方法。
 
@@ -53,3 +55,7 @@ import { BudgetGainFigure, NoiseControlFigure } from '@/visuals/OptimizationFigu
 九章主线在此收束成一条固定的链：**指标异常 → 层 → 预算指纹 → 假设 → 最小实验 → 确认或推翻**。指标层（第 08 章）定位异常住在哪一层——首 token 正常而间隔劣化，指向 decode；预算表把该层拆成五部件并给出占比；指纹对照占比找出嫌疑部件；嫌疑变成一个可反驳的假设——"间隔劣化因为访存受限"；最小实验只改一处、按分布比较；结果要么确认（收益兑现且与上限相符），要么推翻（回到预算表换嫌疑）。链上每一环都有前一章的影子：第 00 章的对照与证据边界、第 08 章的分布口径与 goodput 分母、本章的上限与噪声判定。"优化成功"从来不是一个动作，而是一段可复核的推理。
 
 共同主线到这里走完：从一句"实现 B 快了 30%"开始，经请求、并发、KV、调度、过载、终止、指标，到优化的归因——每一步都把"变快了"翻译成证据。往后的路在两处：深化分支把同一套方法带进 kernel、KV 系统与多租户服务的深处；第 11 章起进入真实框架，沿一次请求追踪 vLLM、SGLang 的调用链，把课程里的不变量映射到生产实现。无论走到哪里，本章的链都是随身工具：任何"快了"的说法，先要预算、指纹与对照实验三样证据——缺一样，就还只是故事。
+
+<OptimizationReportPractice />
+
+<OptimizationTransferAssessment />
