@@ -74,6 +74,12 @@ describe('chapter eight prose contract', () => {
     expect(source).toContain('精确地测量错误的东西')
   })
 
+  it('places practice and transfer assessment after the complete prose', () => {
+    expect(source.match(/<(?:MetricsReportPractice|MetricsTransferAssessment)\s*\/>/g)).toHaveLength(2)
+    expect(source.indexOf('<MetricsReportPractice />')).toBeGreaterThan(source.indexOf('精确地测量错误的东西'))
+    expect(source.indexOf('<MetricsTransferAssessment />')).toBeGreaterThan(source.indexOf('<MetricsReportPractice />'))
+  })
+
   it('keeps every number inside the tick evidence boundary', () => {
     expect(source).toContain('教学单位仍是拍')
     expect(source).toContain('真实系统对时间戳做同样的差')
