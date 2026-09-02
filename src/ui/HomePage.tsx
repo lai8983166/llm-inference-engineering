@@ -53,6 +53,9 @@ export function HomePage() {
           <li>
             <Link to="/chapters/metrics"><b>08</b><span><strong>均值会说谎，事件不会</strong><small>从原始事件推导指标定义、分布、环式与 goodput 口径</small></span></Link>
           </li>
+          <li>
+            <Link to="/chapters/optimization"><b>09</b><span><strong>优化收益去哪了</strong><small>用预算表算清局部优化与端到端收益：指纹、上限、噪声与归因链</small></span></Link>
+          </li>
         </ol>
       </section>
     </article>

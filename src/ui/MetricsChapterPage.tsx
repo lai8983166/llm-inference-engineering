@@ -42,7 +42,10 @@ export function MetricsChapterPage() {
         </nav>
         <div className="chapter-prose"><MetricsChapter /></div>
       </div>
-      <ChapterNavigation previous={{ number: '07', title: '一次请求怎样死去', to: '/chapters/termination' }} />
+      <ChapterNavigation
+        previous={{ number: '07', title: '一次请求怎样死去', to: '/chapters/termination' }}
+        next={{ number: '09', title: '优化收益去哪了', to: '/chapters/optimization' }}
+      />
     </article>
   )
 }

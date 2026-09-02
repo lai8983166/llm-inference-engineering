@@ -6,6 +6,7 @@ import { ConcurrencyChapterPage } from '@/ui/ConcurrencyChapterPage'
 import { HomePage } from '@/ui/HomePage'
 import { KvStateChapterPage } from '@/ui/KvStateChapterPage'
 import { MetricsChapterPage } from '@/ui/MetricsChapterPage'
+import { OptimizationChapterPage } from '@/ui/OptimizationChapterPage'
 import { NotFoundPage } from '@/ui/NotFoundPage'
 import { OverloadChapterPage } from '@/ui/OverloadChapterPage'
 import { PagedKvChapterPage } from '@/ui/PagedKvChapterPage'
@@ -26,6 +27,7 @@ export const routes: RouteObject[] = [
       { path: 'chapters/overload', element: <OverloadChapterPage /> },
       { path: 'chapters/termination', element: <TerminationChapterPage /> },
       { path: 'chapters/metrics', element: <MetricsChapterPage /> },
+      { path: 'chapters/optimization', element: <OptimizationChapterPage /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },

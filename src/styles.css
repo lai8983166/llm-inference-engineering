@@ -154,6 +154,10 @@ button, input, textarea, select { font: inherit; }
 .metrics-chapter-reading { margin-top: 20px; }
 .metrics-chapter-reading .chapter-prose > p:first-of-type { margin-top: 0; }
 
+.optimization-chapter-header { grid-template-columns: minmax(380px, .9fr) minmax(480px, 1.1fr); }
+.optimization-chapter-reading { margin-top: 20px; }
+.optimization-chapter-reading .chapter-prose > p:first-of-type { margin-top: 0; }
+
 .aggregation-chain-workbench { overflow-x: auto; padding: 28px; }
 .request-switch { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 14px; }
 .request-switch button { padding: 6px 10px; color: #aeb1a7; background: transparent; border: 1px solid #4a4e43; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .64rem; cursor: pointer; }
