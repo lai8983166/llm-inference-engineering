@@ -150,6 +150,10 @@ button, input, textarea, select { font: inherit; }
 .termination-chapter-reading { margin-top: 20px; }
 .termination-chapter-reading .chapter-prose > p:first-of-type { margin-top: 0; }
 
+.metrics-chapter-header { grid-template-columns: minmax(380px, .9fr) minmax(480px, 1.1fr); }
+.metrics-chapter-reading { margin-top: 20px; }
+.metrics-chapter-reading .chapter-prose > p:first-of-type { margin-top: 0; }
+
 .terminal-coverage-workbench { overflow-x: auto; padding: 28px; }
 .terminal-bands { display: grid; grid-template-columns: 96px repeat(var(--terminal-columns, 6), minmax(148px, 1fr)); min-width: 1080px; }
 .terminal-bands > button { margin: 0 3px 10px; padding: 7px 9px; color: #aeb1a7; background: transparent; border: 1px solid #4a4e43; font-size: .65rem; cursor: pointer; }

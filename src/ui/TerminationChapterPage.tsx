@@ -42,7 +42,10 @@ export function TerminationChapterPage() {
         </nav>
         <div className="chapter-prose"><TerminationChapter /></div>
       </div>
-      <ChapterNavigation previous={{ number: '06', title: '过载的成本由谁承担', to: '/chapters/overload' }} />
+      <ChapterNavigation
+        previous={{ number: '06', title: '过载的成本由谁承担', to: '/chapters/overload' }}
+        next={{ number: '08', title: '均值会说谎，事件不会', to: '/chapters/metrics' }}
+      />
     </article>
   )
 }

@@ -23,6 +23,7 @@ describe('minimal course routes', () => {
       '/chapters/scheduling',
       '/chapters/overload',
       '/chapters/termination',
+      '/chapters/metrics',
     ])
   })
 
@@ -156,6 +157,18 @@ describe('minimal course routes', () => {
     expect(screen.getByRole('heading', { level: 2, name: '用新注入验收终止账本' })).toBeInTheDocument()
     expect(screen.queryByText(/学习进度|掌握率/)).not.toBeInTheDocument()
     expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /上一章 · 06.*过载的成本由谁承担/ })).toHaveAttribute('href', '/chapters/overload')
+    expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /下一章 · 08.*均值会说谎，事件不会/ })).toHaveAttribute('href', '/chapters/metrics')
+  })
+
+  it('renders chapter eight with the metrics manifest and no unpublished next chapter', () => {
+    renderRoute('/chapters/metrics')
+    expect(screen.getByRole('heading', { level: 1, name: /均值会说谎，\s*事件不会/ })).toBeInTheDocument()
+    expect(screen.getByRole('complementary', { name: '第 08 章固定指标输入' })).toBeInTheDocument()
+    expect(screen.getByRole('navigation', { name: '本章内容' })).toBeInTheDocument()
+    expect(document.querySelectorAll('.chapter-prose > h2')).toHaveLength(5)
+    expect(document.querySelectorAll('.chapter-prose')).toHaveLength(1)
+    expect(screen.queryByText(/学习进度|掌握率/)).not.toBeInTheDocument()
+    expect(within(screen.getByRole('navigation', { name: '章节导航' })).getByRole('link', { name: /上一章 · 07.*一次请求怎样死去/ })).toHaveAttribute('href', '/chapters/termination')
     expect(within(screen.getByRole('navigation', { name: '章节导航' })).queryByRole('link', { name: /下一章/ })).not.toBeInTheDocument()
   })
 

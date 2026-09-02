@@ -50,6 +50,9 @@ export function HomePage() {
           <li>
             <Link to="/chapters/termination"><b>07</b><span><strong>一次请求怎样死去</strong><small>把取消、超时、断开与失败纳入同一套清理与无泄漏合同</small></span></Link>
           </li>
+          <li>
+            <Link to="/chapters/metrics"><b>08</b><span><strong>均值会说谎，事件不会</strong><small>从原始事件推导指标定义、分布、环式与 goodput 口径</small></span></Link>
+          </li>
         </ol>
       </section>
     </article>

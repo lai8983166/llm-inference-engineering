@@ -1,9 +1,9 @@
 ## 1. 建立第 08 章载体与指标底座
 
-- [ ] 1.1 新建第 08 章来源与编辑记录，按"稳定统计/负载原理、版本锁定的框架实现示例、必须实测的判断、确定性教学假设"分类；核对 The Tail at Scale 与 vLLM 压测文档（request-rate、max-concurrency、client_queue_time 单列），逐项记录能支持和不能推出的结论。
-- [ ] 1.2 实现 `requestMetrics`、`distribution`/`percentile`（最近邻秩，登记定义）、`sloVerdict`、`goodputSummary`、`meanTailCounterexample` 与开环/闭环到达表生成及对照纯函数；用单元测试验证固定工作量（约 6 请求、6 块池、水位 W=1）下每请求指标由事件差独立复算、反例的 A 均值更好而 B 的 p99 与 SLO 判定更好、闭环对照的队列深度与首 token 差异手算可复核，且数据不含真实耗时字段。
-- [ ] 1.3 新建第 08 章 MDX、页面载体和稳定路由，接入首页入口并为第 07 章补下一章导航；用路由测试验证 00→…→07→08 均可直达、第 08 章能返回第 07 章且不会生成尚不存在的第 09 章链接。
-- [ ] 1.4 运行领域模型、路由、内容与类型检查，确认本组只建立载体、来源记录和确定性指标底座后提交独立 Git commit；用 `git show --stat` 核对没有纳入既有 `package-lock.json` 改动。
+- [x] 1.1 新建第 08 章来源与编辑记录，按"稳定统计/负载原理、版本锁定的框架实现示例、必须实测的判断、确定性教学假设"分类；核对 The Tail at Scale 与 vLLM 压测文档（request-rate、max-concurrency、client_queue_time 单列），逐项记录能支持和不能推出的结论。
+- [x] 1.2 实现 `requestMetrics`、`distribution`/`percentile`（最近邻秩，登记定义）、`sloVerdict`、`goodputSummary`、`meanTailCounterexample` 与开环/闭环到达表生成及对照纯函数；用单元测试验证固定工作量（约 6 请求、6 块池、水位 W=1）下每请求指标由事件差独立复算、反例的 A 均值更好而 B 的 p99 与 SLO 判定更好、闭环对照的队列深度与首 token 差异手算可复核，且数据不含真实耗时字段。
+- [x] 1.3 新建第 08 章 MDX、页面载体和稳定路由，接入首页入口并为第 07 章补下一章导航；用路由测试验证 00→…→07→08 均可直达、第 08 章能返回第 07 章且不会生成尚不存在的第 09 章链接。
+- [x] 1.4 运行领域模型、路由、内容与类型检查，确认本组只建立载体、来源记录和确定性指标底座后提交独立 Git commit；用 `git show --stat` 核对没有纳入既有 `package-lock.json` 改动。
 
 ## 2. 完成从事件对到聚合链的正文
 
