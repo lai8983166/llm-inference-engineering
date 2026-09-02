@@ -15,6 +15,11 @@ describe('chapter nine prose contract', () => {
       'attribution-chain',
     ])
     expect(source.match(/^<h3/gm)).toBeNull()
+    expect(source.match(/<(?:BudgetGainFigure|NoiseControlFigure)\s*\/>/g)).toHaveLength(2)
+    expect(source.indexOf('<BudgetGainFigure />')).toBeGreaterThan(source.indexOf('X 占多少？'))
+    expect(source.indexOf('<BudgetGainFigure />')).toBeLessThan(source.indexOf('id="bottleneck-signatures"'))
+    expect(source.indexOf('<NoiseControlFigure />')).toBeGreaterThan(source.indexOf('范围分离，继续核对'))
+    expect(source.indexOf('<NoiseControlFigure />')).toBeLessThan(source.indexOf('id="attribution-chain"'))
   })
 
   it('opens with the arithmetic illusion before any tool name', () => {
