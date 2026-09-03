@@ -1,4 +1,6 @@
 import { HitAdmissionFigure, SharedLifecycleFigure } from '@/visuals/PrefixCacheFigures'
+import { PrefixLedgerPractice } from '@/learning/PrefixLedgerPractice'
+import { PrefixCacheTransferAssessment } from '@/learning/PrefixCacheTransferAssessment'
 
 第 04 章的块池假设每个块属于一个请求，第 07 章的无泄漏合同建立在"释放即归还"上。前缀缓存同时打破这两条：两个请求共享同一段 prompt 前缀时，命中方复用已算好的 KV 块——准入变便宜了，但块有了多个所有者，完成不再等于释放，池里还住着无主但"可命中"的缓存块。机制组合不是功能叠加：每引入一个机制，前面建立的所有权、调度与证据合同都要重新签字。
 
@@ -37,3 +39,7 @@ import { HitAdmissionFigure, SharedLifecycleFigure } from '@/visuals/PrefixCache
 这份问卷的真正教训是：**机制叠加放大的是复杂度，不只是功能**。前缀缓存只动了一个假设（块可以共享），四份合同全部重签。叠加第二个机制——比如投机解码再引入"草稿与验证的块共享"——问卷不会变短，只会每个答案多一个牵连方。真实框架把 APC 做成一行开关，是把这四份重签都替你签好了；课程的立场仍是那句老话：用了开关，也要知道签掉的是什么。下一章就带着这份问卷走进真实框架，看 vLLM、SGLang 在源码里如何回答它们。
 
 老规矩：本章的块数、rc 与拍数是教学记账；命中率 1/2 是构造值；真实命中率、显存节省与收益，按第 00 章的合同实测。
+
+<PrefixLedgerPractice />
+
+<PrefixCacheTransferAssessment />

@@ -74,6 +74,12 @@ describe('chapter ten prose contract', () => {
     expect(source).toContain('下一章就带着这份问卷走进真实框架')
   })
 
+  it('places practice and transfer assessment after the complete prose', () => {
+    expect(source.match(/<(?:PrefixLedgerPractice|PrefixCacheTransferAssessment)\s*\/>/g)).toHaveLength(2)
+    expect(source.indexOf('<PrefixLedgerPractice />')).toBeGreaterThan(source.indexOf('按第 00 章的合同实测'))
+    expect(source.indexOf('<PrefixCacheTransferAssessment />')).toBeGreaterThan(source.indexOf('<PrefixLedgerPractice />'))
+  })
+
   it('keeps every number inside the simulated evidence boundary', () => {
     expect(source).toContain('教学数字不换算成任何真实节省')
     expect(source).toContain('命中率 1/2 是构造值')
