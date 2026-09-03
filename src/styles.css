@@ -158,6 +158,10 @@ button, input, textarea, select { font: inherit; }
 .optimization-chapter-reading { margin-top: 20px; }
 .optimization-chapter-reading .chapter-prose > p:first-of-type { margin-top: 0; }
 
+.prefix-cache-chapter-header { grid-template-columns: minmax(380px, .9fr) minmax(480px, 1.1fr); }
+.prefix-cache-chapter-reading { margin-top: 20px; }
+.prefix-cache-chapter-reading .chapter-prose > p:first-of-type { margin-top: 0; }
+
 .budget-gain-workbench { overflow-x: auto; padding: 28px; }
 .budget-bar-block { display: grid; gap: 8px; min-width: 720px; margin-bottom: 18px; }
 .budget-bar-block > strong { color: var(--acid); font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .68rem; }

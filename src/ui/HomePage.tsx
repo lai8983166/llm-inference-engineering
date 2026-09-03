@@ -56,6 +56,9 @@ export function HomePage() {
           <li>
             <Link to="/chapters/optimization"><b>09</b><span><strong>优化收益去哪了</strong><small>用预算表算清局部优化与端到端收益：指纹、上限、噪声与归因链</small></span></Link>
           </li>
+          <li>
+            <Link to="/chapters/prefix-cache"><b>10</b><span><strong>命中不是免费的</strong><small>以前缀缓存为样本：块对齐命中、引用计数所有权与逐出拉锯</small></span></Link>
+          </li>
         </ol>
       </section>
     </article>

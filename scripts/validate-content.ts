@@ -13,8 +13,9 @@ const files = [
   'src/content/chapters/termination.mdx',
   'src/content/chapters/metrics.mdx',
   'src/content/chapters/optimization.mdx',
+  'src/content/chapters/prefix-cache.mdx',
 ]
-const knownRoutes = ['/', '/chapters/trustworthy-baseline', '/chapters/single-request', '/chapters/naive-concurrency', '/chapters/kv-state', '/chapters/paged-kv', '/chapters/scheduling', '/chapters/overload', '/chapters/termination', '/chapters/metrics', '/chapters/optimization']
+const knownRoutes = ['/', '/chapters/trustworthy-baseline', '/chapters/single-request', '/chapters/naive-concurrency', '/chapters/kv-state', '/chapters/paged-kv', '/chapters/scheduling', '/chapters/overload', '/chapters/termination', '/chapters/metrics', '/chapters/optimization', '/chapters/prefix-cache']
 let failed = false
 
 for (const file of files) {

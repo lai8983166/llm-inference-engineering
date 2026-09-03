@@ -42,7 +42,10 @@ export function OptimizationChapterPage() {
         </nav>
         <div className="chapter-prose"><OptimizationChapter /></div>
       </div>
-      <ChapterNavigation previous={{ number: '08', title: '均值会说谎，事件不会', to: '/chapters/metrics' }} />
+      <ChapterNavigation
+        previous={{ number: '08', title: '均值会说谎，事件不会', to: '/chapters/metrics' }}
+        next={{ number: '10', title: '命中不是免费的', to: '/chapters/prefix-cache' }}
+      />
     </article>
   )
 }
