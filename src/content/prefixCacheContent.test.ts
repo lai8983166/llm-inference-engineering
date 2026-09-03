@@ -15,6 +15,11 @@ describe('chapter ten prose contract', () => {
       'combination-contract',
     ])
     expect(source.match(/^<h3/gm)).toBeNull()
+    expect(source.match(/<(?:SharedLifecycleFigure|HitAdmissionFigure)\s*\/>/g)).toHaveLength(2)
+    expect(source.indexOf('<SharedLifecycleFigure />')).toBeGreaterThan(source.indexOf('工程答案'))
+    expect(source.indexOf('<SharedLifecycleFigure />')).toBeLessThan(source.indexOf('id="eviction-budget"'))
+    expect(source.indexOf('<HitAdmissionFigure />')).toBeGreaterThan(source.indexOf('只把问题钉在清单上'))
+    expect(source.indexOf('<HitAdmissionFigure />')).toBeLessThan(source.indexOf('id="combination-contract"'))
   })
 
   it('derives the cache from the recompute counterexample with block alignment', () => {

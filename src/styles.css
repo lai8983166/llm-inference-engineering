@@ -162,6 +162,43 @@ button, input, textarea, select { font: inherit; }
 .prefix-cache-chapter-reading { margin-top: 20px; }
 .prefix-cache-chapter-reading .chapter-prose > p:first-of-type { margin-top: 0; }
 
+.shared-lifecycle-workbench { overflow-x: auto; padding: 28px; }
+.lifecycle-band-scroll { min-width: 880px; }
+.lifecycle-head { display: grid; grid-template-columns: 64px repeat(7, minmax(104px, 1fr)); margin-bottom: 8px; }
+.lifecycle-head button { margin: 0 3px; padding: 6px 8px; color: #aeb1a7; background: transparent; border: 1px solid #4a4e43; font-size: .62rem; cursor: pointer; }
+.lifecycle-head button[aria-current="step"] { color: #11130f; background: var(--acid); border-color: var(--acid); }
+.lifecycle-row { display: grid; grid-template-columns: 64px repeat(7, minmax(104px, 1fr)); margin-bottom: 6px; }
+.lifecycle-row > strong { display: flex; align-items: center; color: white; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .7rem; }
+.lifecycle-row > span { display: grid; min-height: 44px; padding: 6px; place-items: center; border-left: 1px solid #2c2f27; color: #74786d; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .6rem; }
+.lifecycle-row > span[data-role="free"] { background: #191c17; }
+.lifecycle-row > span[data-role="private"] { color: #11130f; background: #9aa76a; }
+.lifecycle-row > span[data-role="shared"] { color: #11130f; background: var(--acid); }
+.lifecycle-row > span[data-role="cached"] { color: #11130f; background: repeating-linear-gradient(135deg, #d8ff62 0 8px, #a8bd45 8px 16px); }
+.lifecycle-row > span.is-current { outline: 2px solid white; outline-offset: -3px; }
+.lifecycle-legend { display: flex; gap: 16px; flex-wrap: wrap; min-width: 880px; margin: 12px 0 0; color: #aeb1a7; font-size: .62rem; }
+.lifecycle-legend span { display: flex; gap: 6px; align-items: center; }
+.lifecycle-legend i { width: 12px; height: 12px; }
+.lifecycle-legend i[data-role="free"] { background: #191c17; border: 1px solid #34382f; }
+.lifecycle-legend i[data-role="private"] { background: #9aa76a; }
+.lifecycle-legend i[data-role="shared"] { background: var(--acid); }
+.lifecycle-legend i[data-role="cached"] { background: repeating-linear-gradient(135deg, #d8ff62 0 5px, #a8bd45 5px 10px); }
+.shared-lifecycle-figure .trace-readout { margin-top: 16px; min-width: 880px; }
+
+.hit-admission-workbench { overflow-x: auto; padding: 28px; }
+.hit-strip-scroll { min-width: 860px; }
+.hit-strip-head { display: grid; grid-template-columns: 64px repeat(var(--hit-columns, 7), minmax(96px, 1fr)); margin-bottom: 8px; }
+.hit-strip-head button { margin: 0 3px; padding: 6px 8px; color: #aeb1a7; background: transparent; border: 1px solid #4a4e43; font-size: .62rem; cursor: pointer; }
+.hit-strip-head button[aria-current="step"] { color: #11130f; background: var(--acid); border-color: var(--acid); }
+.hit-strip-row { display: grid; grid-template-columns: 64px repeat(var(--hit-columns, 7), minmax(96px, 1fr)); align-items: end; margin-bottom: 10px; }
+.hit-strip-row > strong { color: var(--acid); font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .62rem; }
+.hit-strip-row > span { display: grid; min-height: 34px; padding: 4px; place-items: center; color: #8e9287; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .56rem; text-align: center; }
+.hit-strip-row .strip-cell { display: grid; gap: 2px; padding: 0 3px; }
+.hit-strip-row .strip-cell span { color: #c8cbc1; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .6rem; text-align: center; }
+.hit-strip-row .strip-cell i { display: block; height: 36px; background: linear-gradient(to top, #d8ff62 calc(var(--fill, 0) * 100%), #262a22 calc(var(--fill, 0) * 100%)); border: 1px solid #4a4e43; }
+.hit-strip-row .strip-cell span[data-level="0"] + i { background: #8d351f; }
+.hit-strip-row .strip-cell.is-current { outline: 2px solid white; outline-offset: 2px; }
+.hit-admission-figure .trace-readout { margin-top: 16px; min-width: 860px; }
+
 .budget-gain-workbench { overflow-x: auto; padding: 28px; }
 .budget-bar-block { display: grid; gap: 8px; min-width: 720px; margin-bottom: 18px; }
 .budget-bar-block > strong { color: var(--acid); font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: .68rem; }
